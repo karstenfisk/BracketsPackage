@@ -71,7 +71,7 @@ import { SinglePicks, clientMatchesKey } from "@karstenn/brackets/client";
 #### SinglePicks Properties
 
 | Property      | Type     | Description                           |
-| ------------- | -------- | ------------------------------------- | --- |
+| ------------- | -------- | ------------------------------------- |
 | matches       | Array    | Array of first-round matches.         |
 | rounds        | Number   | Number of rounds in the event.        |
 | onPicksUpdate | Function | Callback returning user's picks.      |
@@ -79,7 +79,7 @@ import { SinglePicks, clientMatchesKey } from "@karstenn/brackets/client";
 | textColor     | String   | Text color.                           |
 | accentColor   | String   | Border color.                         |
 | matchColor    | String   | Match pairing color.                  |
-| rounded       | Boolean  | Enables rounded corners on container. |     |
+| rounded       | Boolean  | Enables rounded corners on container. |
 
 _Note: Both components inherit width and height properties of their parent container and support scrolling on overflow. It's advisable not to set a fixed height for the parent container._
 
