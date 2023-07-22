@@ -43,6 +43,24 @@ These functions are tailored to extract match arrays from objects structured as:
 
 Components have been separated into `@karstenn/brackets/server` and `@karstenn/brackets/client` to prevent component poisoning in Next.js.
 
+### Data Format
+
+```javascript
+const matches =  [
+	{
+		homeTeamId?: 136811,
+		awayTeamId?: 136819,
+		homeTeamScore?: 0,
+		awayTeamScore?: 2,
+		round: 1,
+		gameNumber: 2,
+		advanceTo: 9,
+		homeTeam: { teamId: 136811, teamName: "England Women", },
+		awayTeam: { teamId: 136819, teamName: "USA Women",}
+		},
+]
+```
+
 ### Server Components
 
 ```javascript
