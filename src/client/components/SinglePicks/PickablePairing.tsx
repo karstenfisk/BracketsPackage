@@ -69,7 +69,7 @@ const PickablePairing = ({
           cursor: "pointer",
           height: "4rem",
           padding: "0.5rem 0",
-          borderColor: accentColor || "#E2E8F0",
+          borderColor: accentColor,
           backgroundColor: matchColor,
         }}
       >
@@ -92,7 +92,7 @@ const PickablePairing = ({
           style={{
             width: "100%",
             borderBottom: "solid",
-            borderColor: accentColor || "#E2E8F0",
+            borderColor: accentColor,
           }}
         />
         <div
