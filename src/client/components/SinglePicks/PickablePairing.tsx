@@ -21,6 +21,7 @@ const PickablePairing = ({
     advancingTeam,
     homeTeamId,
     awayTeamId,
+    gameNumber,
   } = match;
 
   const handlePick = (selectedTeam: "home" | "away") => {
@@ -48,7 +49,13 @@ const PickablePairing = ({
     const winner = clicked === homeTeam?.teamId ? homeTeam : awayTeam;
     if (winner) {
       setPickMatches((prevState) =>
-        advanceTeam({ ...prevState }, advanceTo, advancingTeam, winner)
+        advanceTeam(
+          { ...prevState },
+          advanceTo,
+          advancingTeam,
+          winner,
+          gameNumber
+        )
       );
       setSelected(winner.teamId); // Update selected state
     }

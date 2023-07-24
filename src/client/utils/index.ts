@@ -102,8 +102,13 @@ export const removeTeamFromLaterRounds = (
   const totalGames = Math.pow(2, Object.keys(bracket.matches).length) - 1;
 
   if (gameNumber === totalGames) {
+    let newMatches = bracket.matches;
+    // Get the last game in the bracket and remove selectedWinnerId
+    const lastGame =
+      newMatches[`round${Object.keys(bracket.matches).length}`][0];
+    delete lastGame.selectedWinnerId;
     return {
-      matches: bracket.matches,
+      matches: newMatches,
       winner: undefined,
     };
   }
@@ -137,6 +142,8 @@ export const removeTeamFromLaterRounds = (
             delete game.awayTeamId;
             delete game.awayTeam;
           }
+
+          if (game.selectedWinnerId === teamId) delete game.selectedWinnerId;
         }
       }
     }
@@ -149,7 +156,8 @@ export const advanceTeam = (
   bracket: Tournament,
   advanceTo: number,
   advanceTeam: "home" | "away" | undefined,
-  winner: Team
+  winner: Team,
+  gameNumber: number
 ): Tournament => {
   const immutableBracket = { ...bracket };
   const rounds = Object.keys(immutableBracket.matches).length;
@@ -165,7 +173,9 @@ export const advanceTeam = (
 
   for (const roundKey in immutableBracket.matches) {
     for (let game of immutableBracket.matches[roundKey]) {
-      if (game.gameNumber === advanceTo) {
+      if (game.gameNumber === gameNumber) {
+        game.selectedWinnerId = winner.teamId;
+      } else if (game.gameNumber === advanceTo) {
         if (advanceTeam === "home") {
           game.homeTeam = winner;
           game.homeTeamId = winner.teamId;

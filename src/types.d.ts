@@ -32,6 +32,7 @@ export interface PredictedMatch {
   advancingTeam?: "home" | "away";
   homeTeam?: Team;
   awayTeam?: Team;
+  selectedWinnerId?: number;
 }
 
 export interface PickablePairingProps {

@@ -33,6 +33,7 @@ export interface PredictedMatch {
   advancingTeam?: "home" | "away";
   homeTeam?: Team;
   awayTeam?: Team;
+  selectedWinnerId?: number;
 }
 
 // Event interface containing relevant and useful information for the event.
