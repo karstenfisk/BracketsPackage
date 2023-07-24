@@ -4,6 +4,7 @@ import {
   PickMatchesByRound,
   PredictedMatch,
   Team,
+  Tournament,
 } from "../types/index";
 
 export const emptyPickMatches = (rounds: number): PickMatchesByRound => {
@@ -92,15 +93,15 @@ export const spacingFormula = (round: number, totalRounds: number) => {
 
 // Function that will take in a PickMatchesByRound object, the current gameNumber, and a teamId then remove that team from all selections in later rounds.
 export const removeTeamFromLaterRounds = (
-  bracket: PickMatchesByRound,
+  bracket: Tournament,
   gameNumber: number,
   teamId: number
-): PickMatchesByRound => {
+): Tournament => {
   let advanceTo: number | null = null;
 
   // Find the game and determine where the team would advance to.
   for (let roundKey in bracket) {
-    const round = bracket[roundKey];
+    const round = bracket.matches[roundKey];
     for (let game of round) {
       if (game.gameNumber === gameNumber) {
         advanceTo = game.advanceTo;
@@ -113,7 +114,7 @@ export const removeTeamFromLaterRounds = (
   if (advanceTo !== null) {
     // Remove the team from subsequent games.
     for (let roundKey in bracket) {
-      const round = bracket[roundKey];
+      const round = bracket.matches[roundKey];
       for (let game of round) {
         if (game.gameNumber >= advanceTo) {
           // Check and reset home team if necessary.
@@ -136,13 +137,25 @@ export const removeTeamFromLaterRounds = (
 
 // Advance team to next round
 export const advanceTeam = (
-  bracket: PickMatchesByRound,
+  bracket: Tournament,
   advanceTo: number,
   advanceTeam: "home" | "away" | undefined,
   winner: Team
-): PickMatchesByRound => {
-  for (const roundKey in bracket) {
-    for (let game of bracket[roundKey]) {
+): Tournament => {
+  const immutableBracket = { ...bracket };
+  const rounds = Object.keys(immutableBracket.matches).length;
+
+  const winnerGameNum = Math.pow(2, rounds);
+
+  if (advanceTo === winnerGameNum) {
+    return {
+      matches: immutableBracket.matches,
+      winner: winner,
+    };
+  }
+
+  for (const roundKey in immutableBracket.matches) {
+    for (let game of immutableBracket.matches[roundKey]) {
       if (game.gameNumber === advanceTo) {
         if (advanceTeam === "home") {
           game.homeTeam = winner;
@@ -154,5 +167,6 @@ export const advanceTeam = (
       }
     }
   }
-  return bracket;
+
+  return immutableBracket;
 };

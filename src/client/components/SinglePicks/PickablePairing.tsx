@@ -49,7 +49,7 @@ const PickablePairing = ({
     if (winner) {
       setPickMatches((prevState) =>
         advanceTeam({ ...prevState }, advanceTo, advancingTeam, winner)
-      ); // Set the updated bracket
+      );
       setSelected(winner.teamId); // Update selected state
     }
     return;

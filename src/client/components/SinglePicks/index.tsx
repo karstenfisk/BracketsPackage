@@ -3,6 +3,7 @@ import {
   SinglePicksProps,
   SingleMatch,
   PickMatchesByRound,
+  Tournament,
 } from "../../types/index";
 import {
   emptyPickMatches,
@@ -21,14 +22,14 @@ import PickablePairing from "./PickablePairing";
 const initializeMatchState = (
   rounds: number,
   roundOneMatches: SingleMatch[]
-): PickMatchesByRound => {
+): Tournament => {
   const updatedRoundOneMatches = roundOneMatches.map((match) => {
     return convertToPredictedMatch(match);
   });
   const emptyMatches = emptyPickMatches(rounds);
 
   emptyMatches[`round${1}`] = updatedRoundOneMatches;
-  return emptyMatches;
+  return { matches: emptyMatches, winner: undefined };
 };
 
 // This component will only populate the matches in round one.
@@ -42,7 +43,10 @@ const SinglePicks = ({
   accentColor = "",
   rounded = false,
 }: SinglePicksProps) => {
-  const [pickMatches, setPickMatches] = useState<PickMatchesByRound>({});
+  const [pickMatches, setPickMatches] = useState<Tournament>({
+    matches: {},
+    winner: undefined,
+  });
 
   useEffect(() => {
     const matchesInRoundOne = Math.pow(2, rounds - 1);
@@ -71,7 +75,7 @@ const SinglePicks = ({
       }}
     >
       <div style={{ display: "flex", alignItems: "center" }}>
-        {Object.keys(pickMatches).map((round) => (
+        {Object.keys(pickMatches.matches).map((round) => (
           <div
             key={round}
             style={{
@@ -81,7 +85,7 @@ const SinglePicks = ({
               marginRight: "0.25rem",
             }}
           >
-            {pickMatches[round].map((match) => (
+            {pickMatches.matches[round].map((match) => (
               <div
                 key={match.gameNumber}
                 style={{

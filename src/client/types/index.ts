@@ -1,4 +1,5 @@
 import { Dispatch, SetStateAction } from "react";
+
 // Interface for teams present in matches.
 export interface Team {
   teamId: number;
@@ -68,11 +69,11 @@ export interface PickablePairingProps {
   matchColor?: string;
   showScores?: boolean;
   selectedColor?: string;
-  pickMatches: PickMatchesByRound;
-  setPickMatches: Dispatch<SetStateAction<PickMatchesByRound>>;
+  pickMatches: Tournament;
+  setPickMatches: Dispatch<SetStateAction<Tournament>>;
 }
 
-type OnPicksUpdate = (updatedPicks: PickMatchesByRound) => void;
+type OnPicksUpdate = (updatedPicks: Tournament) => void;
 
 // Props for SinglePicks component.
 export interface SinglePicksProps {
@@ -88,6 +89,11 @@ export interface SinglePicksProps {
 
 export interface PickMatchesByRound {
   [round: string]: PredictedMatch[];
+}
+
+export interface Tournament {
+  matches: PickMatchesByRound;
+  winner?: Team;
 }
 
 // MatchInfo State

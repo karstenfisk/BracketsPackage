@@ -1,11 +1,11 @@
 import { Dispatch, SetStateAction } from "react";
+
 // Interface for teams present in matches.
 export interface Team {
   teamId: number;
   teamName: string;
 }
 
-// Single match interface containing relevant and useful information for the match.
 export interface SingleMatch {
   homeTeamId: number;
   awayTeamId: number;
@@ -34,19 +34,6 @@ export interface PredictedMatch {
   awayTeam?: Team;
 }
 
-// Props for single bracket component.
-export interface SingleBracketProps {
-  matches: SingleMatch[];
-  rounds: number;
-  bgColor?: string;
-  textColor?: string;
-  accentColor?: string;
-  matchColor?: string;
-  showScores?: boolean;
-  rounded?: boolean;
-}
-
-// Props for single pairing component.
 export interface PickablePairingProps {
   match: PredictedMatch;
   rounds: number;
@@ -57,13 +44,12 @@ export interface PickablePairingProps {
   matchColor?: string;
   showScores?: boolean;
   selectedColor?: string;
-  pickMatches: PickMatchesByRound;
-  setPickMatches: Dispatch<SetStateAction<PickMatchesByRound>>;
+  pickMatches: Tournament;
+  setPickMatches: Dispatch<SetStateAction<Tournament>>;
 }
 
-type OnPicksUpdate = (updatedPicks: PickMatchesByRound) => void;
+type OnPicksUpdate = (updatedPicks: Tournament) => void;
 
-// Props for SinglePicks component.
 export interface SinglePicksProps {
   matches: SingleMatch[];
   rounds: number;
@@ -79,16 +65,17 @@ export interface PickMatchesByRound {
   [round: string]: PredictedMatch[];
 }
 
-// MatchInfo State
+export interface Tournament {
+  matches: PickMatchesByRound;
+  winner?: Team;
+}
 
-// Interface that indicates where winner goes to.
 export interface AdvanceTo {
   gameNumber: number;
   team: "home" | "away";
   round: number;
 }
 
-// Event interface containing relevant and useful information for the event.
 export interface Event {
   id: number;
   name: string;
@@ -100,13 +87,11 @@ export interface Event {
   [customPropertyName: string]: SingleMatch[] | any;
 }
 
-// Dummy match for pairings that are not set yet.
 export interface NullMatch {
   round: number;
   gameNumber: number;
 }
 
-// Props for single bracket component.
 export interface SingleBracketProps {
   matches: SingleMatch[];
   rounds: number;
@@ -118,7 +103,6 @@ export interface SingleBracketProps {
   rounded?: boolean;
 }
 
-// Props for single pairing component.
 export interface SinglePairingProps {
   match: SingleMatch | NullMatch;
   gameNumber: number;
@@ -129,7 +113,6 @@ export interface SinglePairingProps {
   showScores?: boolean;
 }
 
-// interface containing round number and array of matches
 export interface MatchesByRound {
   [round: string]: (SingleMatch | NullMatch)[];
 }
