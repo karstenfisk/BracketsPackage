@@ -52,7 +52,7 @@ const Pairing = ({
           style={{
             width: "100%",
             borderBottom: "solid",
-            borderWidth: 0.5,
+            borderWidth: "0.25",
             borderColor: accentColor,
           }}
         />

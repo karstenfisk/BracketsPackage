@@ -66,7 +66,7 @@ const PickablePairing = ({
           boxShadow: "0 1px 2px 0 rgba(0, 0, 0, 0.05)",
           display: "flex",
           flexDirection: "column",
-          justifyContent: "space-between", // Added to evenly space the teams
+          justifyContent: "space-between",
           cursor: "pointer",
           height: "4rem",
           borderColor: accentColor,
@@ -76,9 +76,9 @@ const PickablePairing = ({
         <div
           style={{
             paddingLeft: "0.5rem",
-            paddingRight: "0.5rem", // Added to center the text more accurately
+            paddingRight: "0.5rem",
             display: "flex",
-            justifyContent: "center", // Centers the team name
+            justifyContent: "center",
             height: "1.5rem",
             alignItems: "center",
             borderTopLeftRadius: "0.5rem",
@@ -95,7 +95,7 @@ const PickablePairing = ({
           style={{
             width: "100%",
             borderBottom: "solid",
-            borderWidth: 0.5,
+            borderWidth: "0.25",
             borderColor: accentColor,
           }}
         />
@@ -103,10 +103,10 @@ const PickablePairing = ({
         <div
           style={{
             paddingLeft: "0.5rem",
-            paddingRight: "0.5rem", // Added to center the text more accurately
+            paddingRight: "0.5rem",
             height: "1.5rem",
             display: "flex",
-            justifyContent: "center", // Centers the team name
+            justifyContent: "center",
             alignItems: "center",
             borderBottomLeftRadius: "0.5rem",
             borderBottomRightRadius: "0.5rem",
