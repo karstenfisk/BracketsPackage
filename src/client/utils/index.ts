@@ -100,7 +100,7 @@ export const removeTeamFromLaterRounds = (
   let advanceTo: number | null = null;
 
   // Find the game and determine where the team would advance to.
-  for (let roundKey in bracket) {
+  for (let roundKey in bracket.matches) {
     const round = bracket.matches[roundKey];
     for (let game of round) {
       if (game.gameNumber === gameNumber) {
@@ -113,7 +113,7 @@ export const removeTeamFromLaterRounds = (
 
   if (advanceTo !== null) {
     // Remove the team from subsequent games.
-    for (let roundKey in bracket) {
+    for (let roundKey in bracket.matches) {
       const round = bracket.matches[roundKey];
       for (let game of round) {
         if (game.gameNumber >= advanceTo) {
