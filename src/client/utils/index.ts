@@ -171,7 +171,7 @@ export const advanceTeam = (
     // Get the last game in the bracket and remove selectedWinnerId
     const lastGame =
       newMatches[`round${Object.keys(bracket.matches).length}`][0];
-    delete lastGame.selectedWinnerId;
+    lastGame.selectedWinnerId = winner.teamId;
     return {
       matches: newMatches,
       winner: winner,
