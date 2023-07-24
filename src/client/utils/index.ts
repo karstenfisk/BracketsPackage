@@ -119,6 +119,7 @@ export const removeTeamFromLaterRounds = (
     for (let game of round) {
       if (game.gameNumber === gameNumber) {
         advanceTo = game.advanceTo;
+        if (game.selectedWinnerId === teamId) delete game.selectedWinnerId;
         break;
       }
     }
@@ -165,8 +166,14 @@ export const advanceTeam = (
   const winnerGameNum = Math.pow(2, rounds);
 
   if (advanceTo === winnerGameNum) {
+    // Set the winner
+    let newMatches = bracket.matches;
+    // Get the last game in the bracket and remove selectedWinnerId
+    const lastGame =
+      newMatches[`round${Object.keys(bracket.matches).length}`][0];
+    delete lastGame.selectedWinnerId;
     return {
-      matches: immutableBracket.matches,
+      matches: newMatches,
       winner: winner,
     };
   }
