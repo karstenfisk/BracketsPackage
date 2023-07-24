@@ -66,7 +66,7 @@ const PickablePairing = ({
           boxShadow: "0 1px 2px 0 rgba(0, 0, 0, 0.05)",
           display: "flex",
           flexDirection: "column",
-          justifyContent: "space-between",
+          justifyContent: "space-around",
           cursor: "pointer",
           height: "4rem",
           borderColor: accentColor,
@@ -75,20 +75,17 @@ const PickablePairing = ({
       >
         <div
           style={{
+            display: "flex",
+            justifyContent: "space-between",
             paddingLeft: "0.5rem",
             paddingRight: "0.5rem",
-            display: "flex",
-            justifyContent: "center",
-            height: "1.5rem",
             alignItems: "center",
-            borderTopLeftRadius: "0.5rem",
-            borderTopRightRadius: "0.5rem",
             color: textColor,
             fontWeight: selected === match.homeTeamId ? "bold" : "normal",
           }}
           onClick={() => handlePick("home")}
         >
-          {homeTeam?.teamName}
+          <span>{homeTeam?.teamName}</span>
         </div>
 
         <div
@@ -102,20 +99,17 @@ const PickablePairing = ({
 
         <div
           style={{
+            display: "flex",
+            justifyContent: "space-between",
             paddingLeft: "0.5rem",
             paddingRight: "0.5rem",
-            height: "1.5rem",
-            display: "flex",
-            justifyContent: "center",
             alignItems: "center",
-            borderBottomLeftRadius: "0.5rem",
-            borderBottomRightRadius: "0.5rem",
             color: textColor,
             fontWeight: selected === match.awayTeamId ? "bold" : "normal",
           }}
           onClick={() => handlePick("away")}
         >
-          {awayTeam?.teamName}
+          <span>{awayTeam?.teamName}</span>
         </div>
       </div>
     </div>
