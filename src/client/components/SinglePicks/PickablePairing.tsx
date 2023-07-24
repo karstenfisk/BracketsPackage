@@ -82,6 +82,7 @@ const PickablePairing = ({
             alignItems: "center",
             color: textColor,
             fontWeight: selected === match.homeTeamId ? "bold" : "normal",
+            height: "50%",
           }}
           onClick={() => handlePick("home")}
         >
@@ -106,6 +107,7 @@ const PickablePairing = ({
             alignItems: "center",
             color: textColor,
             fontWeight: selected === match.awayTeamId ? "bold" : "normal",
+            height: "50%",
           }}
           onClick={() => handlePick("away")}
         >
