@@ -95,7 +95,7 @@ const PickablePairing = ({
           style={{
             width: "100%",
             borderBottom: "solid",
-            borderWidth: "0.25",
+            borderWidth: "0.25px",
             borderColor: accentColor,
           }}
         />
