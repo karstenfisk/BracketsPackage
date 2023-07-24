@@ -27,57 +27,48 @@ const Pairing = ({
           boxShadow: "0 1px 2px 0 rgba(0, 0, 0, 0.05)",
           display: "flex",
           flexDirection: "column",
+          justifyContent: "space-around",
           cursor: "pointer",
           height: "4rem",
-          padding: "0.5rem 0",
           borderColor: accentColor,
           backgroundColor: matchColor,
         }}
       >
         <div
           style={{
-            paddingLeft: "0.5rem",
             display: "flex",
-            height: "1.5rem",
+            justifyContent: "space-between",
+            paddingLeft: "0.5rem",
+            paddingRight: "0.5rem",
             alignItems: "center",
             color: textColor,
           }}
         >
-          {homeTeam}
-          <div
-            style={{
-              marginLeft: "auto",
-              paddingRight: "0.5rem",
-            }}
-          >
-            {showScores ? (match as SingleMatch).homeTeamScore : null}
-          </div>
+          <span>{homeTeam}</span>
+          {showScores && <span>{(match as SingleMatch).homeTeamScore}</span>}
         </div>
+
         <div
           style={{
             width: "100%",
             borderBottom: "solid",
+            borderWidth: 0.5,
             borderColor: accentColor,
           }}
         />
+
         <div
           style={{
-            paddingLeft: "0.5rem",
-            height: "1.5rem",
             display: "flex",
+            justifyContent: "space-between",
+            paddingLeft: "0.5rem",
+            paddingRight: "0.5rem",
             alignItems: "center",
             color: textColor,
           }}
         >
-          {awayTeam}
-          <div
-            style={{
-              marginLeft: "auto",
-              paddingRight: "0.5rem",
-            }}
-          >
-            {showScores ? (match as SingleMatch).awayTeamScore : null}
-          </div>
+          <span>{awayTeam}</span>
+          {showScores && <span>{(match as SingleMatch).awayTeamScore}</span>}
         </div>
       </div>
     </div>
