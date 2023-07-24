@@ -69,7 +69,6 @@ const SinglePicks = ({
       style={{
         width: "100%",
         height: "100%",
-        overflowX: "scroll",
         backgroundColor: bgColor,
         borderRadius: `${rounded ? "0.5rem" : "0"}`,
       }}

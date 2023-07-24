@@ -128,14 +128,14 @@ export const removeTeamFromLaterRounds = (
         if (game.gameNumber >= advanceTo) {
           // Check and reset home team if necessary.
           if (game.homeTeamId === teamId) {
-            game.homeTeamId = undefined;
-            game.homeTeam = undefined;
+            delete game.homeTeamId;
+            delete game.homeTeam;
           }
 
           // Check and reset away team if necessary.
           if (game.awayTeamId === teamId) {
-            game.awayTeamId = undefined;
-            game.awayTeam = undefined;
+            delete game.awayTeamId;
+            delete game.awayTeam;
           }
         }
       }
