@@ -99,6 +99,15 @@ export const removeTeamFromLaterRounds = (
 ): Tournament => {
   let advanceTo: number | null = null;
 
+  const totalGames = Math.pow(2, Object.keys(bracket.matches).length) - 1;
+
+  if (gameNumber === totalGames) {
+    return {
+      matches: bracket.matches,
+      winner: undefined,
+    };
+  }
+
   // Find the game and determine where the team would advance to.
   for (let roundKey in bracket.matches) {
     const round = bracket.matches[roundKey];
