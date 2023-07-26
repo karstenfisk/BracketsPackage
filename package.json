@@ -1,9 +1,13 @@
 {
   "name": "@karstenn/brackets",
-  "version": "1.6.0",
+  "version": "1.6.1",
   "description": "Tournament brackets for React",
   "scripts": {
     "build": "rollup -c"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/karstenfisk/BracketsPackage.git"
   },
   "keywords": [],
   "author": "Karsten Fisk",
