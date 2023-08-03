@@ -26,9 +26,12 @@ const initializeMatchState = (
   const updatedRoundOneMatches = roundOneMatches.map((match) => {
     return convertToPredictedMatch(match);
   });
+  const sortedRoundOneMatches = updatedRoundOneMatches.sort(
+    (a, b) => a.gameNumber - b.gameNumber
+  );
   const emptyMatches = emptyPickMatches(rounds);
 
-  emptyMatches[`round${1}`] = updatedRoundOneMatches;
+  emptyMatches[`round${1}`] = sortedRoundOneMatches;
   return { matches: emptyMatches, winner: undefined };
 };
 
