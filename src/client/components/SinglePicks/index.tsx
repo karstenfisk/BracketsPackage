@@ -40,6 +40,7 @@ const SinglePicks = ({
   onPicksUpdate,
   matches,
   rounds,
+  previousPicks,
   bgColor = "",
   matchColor = "",
   textColor = "",
@@ -52,13 +53,17 @@ const SinglePicks = ({
   });
 
   useEffect(() => {
-    const matchesInRoundOne = Math.pow(2, rounds - 1);
-    const roundOneMatches = matches.filter((match) => match.round === 1);
+    if (previousPicks) {
+      setPickMatches(previousPicks);
+    } else {
+      const matchesInRoundOne = Math.pow(2, rounds - 1);
+      const roundOneMatches = matches.filter((match) => match.round === 1);
 
-    if (roundOneMatches.length !== matchesInRoundOne) {
-      throw new Error("Matches must at least fill the entire first round.");
+      if (roundOneMatches.length !== matchesInRoundOne) {
+        throw new Error("Matches must at least fill the entire first round.");
+      }
+      setPickMatches(initializeMatchState(rounds, roundOneMatches));
     }
-    setPickMatches(initializeMatchState(rounds, roundOneMatches));
   }, [matches, rounds]);
 
   useEffect(() => {

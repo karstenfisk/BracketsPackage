@@ -59,7 +59,13 @@ export interface SinglePicksProps {
   accentColor?: string;
   matchColor?: string;
   rounded?: boolean;
+  previousPicks?: AlreadyPicked;
   onPicksUpdate?: OnPicksUpdate;
+}
+
+export interface AlreadyPicked {
+  matches: PickMatchesByRound;
+  winner?: Team;
 }
 
 export interface PickMatchesByRound {
