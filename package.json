@@ -1,6 +1,6 @@
 {
   "name": "@karstenn/brackets",
-  "version": "1.7.3",
+  "version": "1.7.4",
   "description": "Tournament brackets for React",
   "scripts": {
     "build": "rollup -c"
@@ -32,11 +32,11 @@
   "exports": {
     "./client": {
       "import": "./dist/cjs/client/index.js",
-      "types": "./dist/types/index.d.ts"
+      "types": "./dist/cjs/types.d.ts"
     },
     "./server": {
       "import": "./dist/cjs/server/index.js",
-      "types": "./dist/types/index.d.ts"
+      "types": "./dist/cjs/types.d.ts"
     }
   }
 }
