@@ -127,12 +127,11 @@ const SinglePicks = ({
                 )}
                 <div
                   style={{
-                    display: "flex",
-                    flexDirection: "column",
                     paddingTop: `${spacingFormula(match.round, rounds)}rem`,
                     paddingBottom: `${spacingFormula(match.round, rounds)}rem`,
                     color: textColor,
                     marginRight: `${match.round === rounds ? "2rem" : "0"}`,
+                    marginTop: `${match.round === rounds ? "2.5rem" : "0"}`,
                   }}
                 >
                   <PickablePairing
