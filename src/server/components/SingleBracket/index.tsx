@@ -108,6 +108,7 @@ const SingleBracket = ({
                     paddingBottom: `${spacingFormula(match.round, rounds)}rem`,
                     color: textColor,
                     marginRight: `${match.round === rounds ? "2rem" : "0"}`,
+                    marginTop: `${match.round === rounds ? "2.5rem" : "0"}`,
                   }}
                 >
                   <Pairing
@@ -119,6 +120,35 @@ const SingleBracket = ({
                     matchColor={matchColor}
                     showScores={showScores}
                   />
+                  {match.round === rounds ? (
+                    <div
+                      style={{
+                        width: "16rem",
+                        border: "solid",
+                        borderWidth: "1px",
+                        borderRadius: "0.5rem",
+                        boxShadow: "0 1px 2px 0 rgba(0, 0, 0, 0.05)",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        cursor: "pointer",
+                        height: "2rem",
+                        borderColor: accentColor,
+                        backgroundColor: matchColor,
+                        marginTop: "0.5rem",
+                      }}
+                    >
+                      <span style={{ color: textColor }}>
+                        {"homeTeamId" in match &&
+                        match.winnerId === match.homeTeamId
+                          ? match.homeTeam.teamName
+                          : "awayTeamId" in match &&
+                            match.winnerId === match.awayTeamId
+                          ? match.awayTeam.teamName
+                          : null}
+                      </span>
+                    </div>
+                  ) : null}
                 </div>
               </div>
             ))}

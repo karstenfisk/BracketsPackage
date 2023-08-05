@@ -42,6 +42,7 @@ const Pairing = ({
             paddingRight: "0.5rem",
             alignItems: "center",
             color: textColor,
+            height: "50%",
           }}
         >
           <span>{homeTeam}</span>
@@ -65,6 +66,7 @@ const Pairing = ({
             paddingRight: "0.5rem",
             alignItems: "center",
             color: textColor,
+            height: "50%",
           }}
         >
           <span>{awayTeam}</span>
