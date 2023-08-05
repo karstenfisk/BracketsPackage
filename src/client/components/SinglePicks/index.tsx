@@ -127,6 +127,8 @@ const SinglePicks = ({
                 )}
                 <div
                   style={{
+                    display: "flex",
+                    flexDirection: "column",
                     paddingTop: `${spacingFormula(match.round, rounds)}rem`,
                     paddingBottom: `${spacingFormula(match.round, rounds)}rem`,
                     color: textColor,
