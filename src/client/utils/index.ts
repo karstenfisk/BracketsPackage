@@ -101,6 +101,9 @@ export const removeTeamFromLaterRounds = (
 
   const totalGames = Math.pow(2, Object.keys(bracket.matches).length) - 1;
 
+  if (bracket.winner?.teamId === teamId) {
+    bracket.winner = undefined;
+  }
   if (gameNumber === totalGames) {
     let newMatches = bracket.matches;
     // Get the last game in the bracket and remove selectedWinnerId
