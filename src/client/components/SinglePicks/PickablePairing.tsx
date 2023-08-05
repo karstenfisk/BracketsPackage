@@ -1,5 +1,5 @@
 import { PickablePairingProps } from "../../types/index";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { removeTeamFromLaterRounds, advanceTeam } from "../../utils/index";
 
 const PickablePairing = ({
@@ -23,6 +23,13 @@ const PickablePairing = ({
     awayTeamId,
     gameNumber,
   } = match;
+
+  useEffect(() => {
+    // Logic to determine if the match is already selected
+    if (match.selectedWinnerId) {
+      setSelected(match.selectedWinnerId);
+    }
+  }, []);
 
   const handlePick = (selectedTeam: "home" | "away") => {
     const currentPick = selected;
