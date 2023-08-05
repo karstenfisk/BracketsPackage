@@ -144,28 +144,27 @@ const SinglePicks = ({
                     setPickMatches={setPickMatches}
                     rounds={rounds}
                   />
-                  {round === `round${rounds}` && pickMatches.winner && (
-                    <div
-                      style={{
-                        width: "16rem",
-                        border: "solid",
-                        borderWidth: "1px",
-                        borderRadius: "0.5rem",
-                        boxShadow: "0 1px 2px 0 rgba(0, 0, 0, 0.05)",
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        cursor: "pointer",
-                        height: "2rem",
-                        borderColor: accentColor,
-                        backgroundColor: matchColor,
-                      }}
-                    >
-                      <span style={{ color: textColor }}>
-                        {pickMatches.winner.teamName}
-                      </span>
-                    </div>
-                  )}
+                  <div
+                    style={{
+                      width: "16rem",
+                      border: "solid",
+                      borderWidth: "1px",
+                      borderRadius: "0.5rem",
+                      boxShadow: "0 1px 2px 0 rgba(0, 0, 0, 0.05)",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      cursor: "pointer",
+                      height: "2rem",
+                      borderColor: accentColor,
+                      backgroundColor: matchColor,
+                      marginTop: "0.5rem",
+                    }}
+                  >
+                    <span style={{ color: textColor }}>
+                      {pickMatches?.winner?.teamName}
+                    </span>
+                  </div>
                 </div>
               </div>
             ))}
