@@ -11,7 +11,7 @@
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "declaration": true,
-    "declarationDir": "dist/cjs/types",
+    "declarationDir": "dist/cjs",
     "emitDeclarationOnly": true
   }
 }
