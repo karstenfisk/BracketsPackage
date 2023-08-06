@@ -58,7 +58,7 @@ const Pairing = ({
             height: "50%",
             backgroundColor: `${
               pickedMatch && "winnerId" in match
-                ? `rgba(${homeTeamBgColor}, 0.6)`
+                ? `rgba(${homeTeamBgColor}, 0.4)`
                 : ""
             }`,
           }}
@@ -87,7 +87,7 @@ const Pairing = ({
             height: "50%",
             backgroundColor: `${
               pickedMatch && "winnerId" in match
-                ? `rgba(${awayTeamBgColor}, 0.6)`
+                ? `rgba(${awayTeamBgColor}, 0.4)`
                 : ""
             }`,
           }}
