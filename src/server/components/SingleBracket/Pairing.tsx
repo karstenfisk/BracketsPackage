@@ -1,5 +1,6 @@
 import { SinglePairingProps, SingleMatch } from "../../types/index";
 import React from "react";
+import { getHighlightColor } from "../../utils";
 
 const Pairing = ({
   // SingleMatch or NullMatch object, color settings, and other props described in the SingleBracket component.
@@ -8,12 +9,23 @@ const Pairing = ({
   accentColor = "",
   matchColor = "",
   showScores = false,
+  pickedMatch,
 }: SinglePairingProps) => {
   // Extract team names from match object.
-  const homeTeam: String | undefined = (match as SingleMatch)?.homeTeam
-    ?.teamName;
-  const awayTeam: String | undefined = (match as SingleMatch)?.awayTeam
-    ?.teamName;
+  const homeTeam = (match as SingleMatch)?.homeTeam?.teamName;
+  const awayTeam = (match as SingleMatch)?.awayTeam?.teamName;
+
+  let homeTeamBgColor = "";
+  let awayTeamBgColor = "";
+
+  if (pickedMatch && "winnerId" in match) {
+    const winLoss = getHighlightColor(match as SingleMatch, pickedMatch);
+    if (match.winnerId === match.homeTeamId) {
+      homeTeamBgColor = winLoss;
+    } else if (match.winnerId === match.awayTeamId) {
+      awayTeamBgColor = winLoss;
+    }
+  }
 
   // Return card containing match information.
   return (
@@ -43,6 +55,7 @@ const Pairing = ({
             alignItems: "center",
             color: textColor,
             height: "50%",
+            backgroundColor: homeTeamBgColor,
           }}
         >
           <span>{homeTeam}</span>
@@ -67,6 +80,7 @@ const Pairing = ({
             alignItems: "center",
             color: textColor,
             height: "50%",
+            backgroundColor: awayTeamBgColor,
           }}
         >
           <span>{awayTeam}</span>

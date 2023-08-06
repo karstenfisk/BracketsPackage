@@ -38,3 +38,13 @@ export const spacingFormula = (round: number, totalRounds: number) => {
 
   return baseSpacing + spacing;
 };
+
+export const getHighlightColor = (
+  match: SingleMatch,
+  pickedMatch: SingleMatch
+) => {
+  if (match.winnerId !== null && match.gameStatus === "complete") {
+    return match.winnerId === pickedMatch.winnerId ? "#98fb98" : "#CD5C5C";
+  }
+  return "";
+};
