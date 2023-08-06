@@ -56,7 +56,11 @@ const Pairing = ({
             alignItems: "center",
             color: textColor,
             height: "50%",
-            backgroundColor: `rgba(${homeTeamBgColor}, 0.6))`,
+            backgroundColor: `${
+              pickedMatch && "winnerId" in match
+                ? `rgba(${homeTeamBgColor}, 0.6)`
+                : ""
+            }`,
           }}
         >
           <span>{homeTeam}</span>
@@ -81,7 +85,11 @@ const Pairing = ({
             alignItems: "center",
             color: textColor,
             height: "50%",
-            backgroundColor: `rgba(${awayTeamBgColor}, 0.6))`,
+            backgroundColor: `${
+              pickedMatch && "winnerId" in match
+                ? `rgba(${awayTeamBgColor}, 0.6)`
+                : ""
+            }`,
           }}
         >
           <span>{awayTeam}</span>
