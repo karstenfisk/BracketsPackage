@@ -10,6 +10,7 @@ const Pairing = ({
   matchColor = "",
   showScores = false,
   pickedMatch,
+  reversed = false,
 }: SinglePairingProps) => {
   // Extract team names from match object.
   const homeTeam = (match as SingleMatch)?.homeTeam?.teamName;
@@ -19,11 +20,23 @@ const Pairing = ({
   let awayTeamBgColor = "";
 
   if (pickedMatch && "winnerId" in match) {
-    const winLoss = getHighlightColor(match as SingleMatch, pickedMatch);
-    if (pickedMatch.winnerId === match.homeTeamId) {
-      homeTeamBgColor = winLoss;
-    } else if (pickedMatch.winnerId === match.awayTeamId) {
-      awayTeamBgColor = winLoss;
+    if (reversed) {
+      const winLoss = getHighlightColor(
+        pickedMatch as SingleMatch,
+        match as SingleMatch
+      );
+      if (match.winnerId === pickedMatch.homeTeamId) {
+        homeTeamBgColor = winLoss;
+      } else if (match.winnerId === pickedMatch.awayTeamId) {
+        awayTeamBgColor = winLoss;
+      }
+    } else {
+      const winLoss = getHighlightColor(match as SingleMatch, pickedMatch);
+      if (pickedMatch.winnerId === match.homeTeamId) {
+        homeTeamBgColor = winLoss;
+      } else if (pickedMatch.winnerId === match.awayTeamId) {
+        awayTeamBgColor = winLoss;
+      }
     }
   }
 

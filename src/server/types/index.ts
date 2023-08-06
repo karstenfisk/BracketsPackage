@@ -51,6 +51,7 @@ export interface SingleBracketProps {
   showScores?: boolean;
   rounded?: boolean;
   picks?: SingleMatch[];
+  reversed?: boolean;
 }
 
 // Props for single pairing component.
@@ -63,6 +64,7 @@ export interface SinglePairingProps {
   matchColor?: string;
   showScores?: boolean;
   pickedMatch?: SingleMatch;
+  reversed?: boolean;
 }
 
 // interface containing round number and array of matches

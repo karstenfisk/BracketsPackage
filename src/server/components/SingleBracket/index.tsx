@@ -52,6 +52,7 @@ const SingleBracket = ({
   showScores = false,
   rounded = false,
   picks,
+  reversed = false,
 }: SingleBracketProps) => {
   const roundMatches = createPairings(rounds, matches);
 
@@ -135,6 +136,7 @@ const SingleBracket = ({
                         matchColor={matchColor}
                         showScores={showScores}
                         pickedMatch={chosenGame}
+                        reversed={reversed}
                       />
                       {match.round === rounds ? (
                         <div
