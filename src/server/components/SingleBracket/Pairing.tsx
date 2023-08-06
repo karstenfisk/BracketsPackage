@@ -20,9 +20,9 @@ const Pairing = ({
 
   if (pickedMatch && "winnerId" in match) {
     const winLoss = getHighlightColor(match as SingleMatch, pickedMatch);
-    if (match.winnerId === match.homeTeamId) {
+    if (pickedMatch.winnerId === match.homeTeamId) {
       homeTeamBgColor = winLoss;
-    } else if (match.winnerId === match.awayTeamId) {
+    } else if (pickedMatch.winnerId === match.awayTeamId) {
       awayTeamBgColor = winLoss;
     }
   }
@@ -44,6 +44,7 @@ const Pairing = ({
           height: "4rem",
           borderColor: accentColor,
           backgroundColor: matchColor,
+          overflow: "hidden",
         }}
       >
         <div
@@ -55,7 +56,7 @@ const Pairing = ({
             alignItems: "center",
             color: textColor,
             height: "50%",
-            backgroundColor: homeTeamBgColor,
+            backgroundColor: `rgba(${homeTeamBgColor}, 0.6))`,
           }}
         >
           <span>{homeTeam}</span>
@@ -80,7 +81,7 @@ const Pairing = ({
             alignItems: "center",
             color: textColor,
             height: "50%",
-            backgroundColor: awayTeamBgColor,
+            backgroundColor: `rgba(${awayTeamBgColor}, 0.6))`,
           }}
         >
           <span>{awayTeam}</span>

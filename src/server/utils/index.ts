@@ -44,7 +44,9 @@ export const getHighlightColor = (
   pickedMatch: SingleMatch
 ) => {
   if (match.winnerId !== null && match.gameStatus === "complete") {
-    return match.winnerId === pickedMatch.winnerId ? "#98fb98" : "#CD5C5C";
+    return match.winnerId === pickedMatch.winnerId
+      ? "98, 181, 98"
+      : "205, 92, 92";
   }
   return "";
 };
