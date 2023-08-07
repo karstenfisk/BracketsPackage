@@ -83,8 +83,9 @@ const Pairing = ({
         <div
           style={{
             width: "100%",
-            borderBottom: "solid",
-            borderWidth: "0.25px",
+            borderTop: "solid",
+            borderBottom: "none",
+            borderWidth: "1px",
             borderColor: accentColor,
           }}
         />

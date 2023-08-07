@@ -96,13 +96,16 @@ const SingleBracket = ({
                       <>
                         <div
                           style={{
-                            minHeight: "100%",
+                            minHeight: "75%",
                             width: "2rem",
                             border: "solid",
                             borderRadius: "0 0.5rem 0.5rem 0",
                             borderLeft: "none",
                             borderColor: accentColor,
-                            height: `${spacingFormula(match.round, rounds)}rem`,
+                            borderWidth: "1px",
+                            height: `${
+                              spacingFormula(match.round, rounds) + 2.5
+                            }rem`,
                           }}
                         />
                         <div
@@ -110,6 +113,7 @@ const SingleBracket = ({
                             border: "solid",
                             borderBottom: "none",
                             width: "1rem",
+                            borderWidth: "1px",
                             borderColor: accentColor,
                           }}
                         />
@@ -188,16 +192,20 @@ const SingleBracket = ({
                             minHeight: "75%",
                             width: "2rem",
                             border: "solid",
+                            borderWidth: "1px",
                             borderRadius: "0 0.5rem 0.5rem 0",
                             borderLeft: "none",
                             borderColor: accentColor,
-                            height: `${spacingFormula(match.round, rounds)}rem`,
+                            height: `${
+                              spacingFormula(match.round, rounds) + 2.5
+                            }rem`,
                           }}
                         />
                         <div
                           style={{
                             border: "solid",
                             borderBottom: "none",
+                            borderWidth: "1px",
                             width: "1rem",
                             borderColor: accentColor,
                           }}
