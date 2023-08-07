@@ -73,7 +73,6 @@ const SingleBracket = ({
               display: "flex",
               alignItems: "center",
               flexDirection: "column",
-              marginRight: "0.25rem",
             }}
           >
             {roundMatches[round].map((match) => {
@@ -104,7 +103,7 @@ const SingleBracket = ({
                             borderColor: accentColor,
                             borderWidth: "1px",
                             height: `${
-                              spacingFormula(match.round, rounds) + 2.5
+                              spacingFormula(match.round, rounds) + 2
                             }rem`,
                           }}
                         />
@@ -197,7 +196,7 @@ const SingleBracket = ({
                             borderLeft: "none",
                             borderColor: accentColor,
                             height: `${
-                              spacingFormula(match.round, rounds) + 2.5
+                              spacingFormula(match.round, rounds) + 2
                             }rem`,
                           }}
                         />

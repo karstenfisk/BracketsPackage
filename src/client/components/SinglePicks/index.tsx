@@ -89,7 +89,6 @@ const SinglePicks = ({
               display: "flex",
               alignItems: "center",
               flexDirection: "column",
-              marginRight: "0.25rem",
             }}
           >
             {pickMatches.matches[round].map((match) => (
@@ -113,9 +112,7 @@ const SinglePicks = ({
                         borderLeft: "none",
                         borderColor: accentColor,
                         borderWidth: "1px",
-                        height: `${
-                          spacingFormula(match.round, rounds) + 2.4
-                        }rem`,
+                        height: `${spacingFormula(match.round, rounds) + 2}rem`,
                       }}
                     />
                     <div
