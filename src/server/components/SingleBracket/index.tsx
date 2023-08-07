@@ -96,7 +96,7 @@ const SingleBracket = ({
                       <>
                         <div
                           style={{
-                            minHeight: "75%",
+                            minHeight: "100%",
                             width: "2rem",
                             border: "solid",
                             borderRadius: "0 0.5rem 0.5rem 0",
