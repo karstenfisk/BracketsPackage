@@ -78,7 +78,13 @@ const Pairing = ({
         >
           <span>{homeTeam}</span>
           {showScores && (
-            <span style={{ fontSize: "smaller", fontWeight: "lighter" }}>
+            <span
+              style={{
+                fontSize: "smaller",
+                fontWeight: "lighter",
+                opacity: 0.8,
+              }}
+            >
               {(match as SingleMatch).homeTeamScore}
             </span>
           )}
@@ -112,7 +118,13 @@ const Pairing = ({
         >
           <span>{awayTeam}</span>
           {showScores && (
-            <span style={{ fontSize: "smaller", fontWeight: "lighter" }}>
+            <span
+              style={{
+                fontSize: "smaller",
+                fontWeight: "lighter",
+                opacity: 0.8,
+              }}
+            >
               {(match as SingleMatch).awayTeamScore}
             </span>
           )}

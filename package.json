@@ -1,6 +1,6 @@
 {
   "name": "@karstenn/brackets",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "Tournament brackets for React",
   "scripts": {
     "build": "rollup -c"
