@@ -77,7 +77,11 @@ const Pairing = ({
           }}
         >
           <span>{homeTeam}</span>
-          {showScores && <span>{(match as SingleMatch).homeTeamScore}</span>}
+          {showScores && (
+            <span style={{ fontSize: "smaller", fontWeight: "lighter" }}>
+              {(match as SingleMatch).homeTeamScore}
+            </span>
+          )}
         </div>
 
         <div
@@ -107,7 +111,11 @@ const Pairing = ({
           }}
         >
           <span>{awayTeam}</span>
-          {showScores && <span>{(match as SingleMatch).awayTeamScore}</span>}
+          {showScores && (
+            <span style={{ fontSize: "smaller", fontWeight: "lighter" }}>
+              {(match as SingleMatch).awayTeamScore}
+            </span>
+          )}
         </div>
       </div>
     </div>
