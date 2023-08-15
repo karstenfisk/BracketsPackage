@@ -161,10 +161,12 @@ const SingleBracket = ({
                         >
                           <span style={{ color: textColor }}>
                             {"homeTeamId" in match &&
-                            match.winnerId === match.homeTeamId
+                            match.winnerId === match.homeTeamId &&
+                            match.homeTeam
                               ? match.homeTeam.teamName
                               : "awayTeamId" in match &&
-                                match.winnerId === match.awayTeamId
+                                match.winnerId === match.awayTeamId &&
+                                match.awayTeam
                               ? match.awayTeam.teamName
                               : null}
                           </span>
@@ -252,10 +254,12 @@ const SingleBracket = ({
                         >
                           <span style={{ color: textColor }}>
                             {"homeTeamId" in match &&
-                            match.winnerId === match.homeTeamId
+                            match.winnerId === match.homeTeamId &&
+                            match.homeTeam
                               ? match.homeTeam.teamName
                               : "awayTeamId" in match &&
-                                match.winnerId === match.awayTeamId
+                                match.winnerId === match.awayTeamId &&
+                                match.awayTeam
                               ? match.awayTeam.teamName
                               : null}
                           </span>
