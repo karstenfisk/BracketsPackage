@@ -198,39 +198,39 @@ export interface MLBBracketProps {
   accentColor?: string;
   matchColor?: string;
   rounded?: boolean;
-  picks?: BracketData;
+  picks?: MLBBracketData;
   showScores?: boolean;
 }
 
 export interface MLBLeagueProps {
   type: "NL" | "AL";
-  data: BracketData;
+  data: MLBBracketData;
   textColor?: string;
   accentColor?: string;
   matchColor?: string;
   rounded?: boolean;
-  picks?: BracketData;
+  picks?: MLBBracketData;
   showScores?: boolean;
 }
 
 export interface MLBPairingProps {
-  series: Series;
+  series: MLBSeriesDetails;
   textColor?: string;
   accentColor?: string;
   matchColor?: string;
   rounded?: boolean;
-  pickSeries?: Series;
+  pickSeries?: MLBSeriesDetails;
   showScores?: boolean;
 }
 
 export interface MLBBracketData {
-  ALW: Record<1 | 2, MLBPickSeries>;
-  NLW: Record<1 | 2, MLBPickSeries>;
-  ALDS: Record<1 | 2, MLBPickSeries>;
-  NLDS: Record<1 | 2, MLBPickSeries>;
-  ALCS: MLBPickSeries;
-  NLCS: MLBPickSeries;
-  WS: MLBPickSeries;
+  ALW: Record<1 | 2, MLBSeriesDetails>;
+  NLW: Record<1 | 2, MLBSeriesDetails>;
+  ALDS: Record<1 | 2, MLBSeriesDetails>;
+  NLDS: Record<1 | 2, MLBSeriesDetails>;
+  ALCS: MLBSeriesDetails;
+  NLCS: MLBSeriesDetails;
+  WS: MLBSeriesDetails;
 }
 
 export interface MLBTeam {
