@@ -28,7 +28,7 @@ const MLBBracket = ({
     <div
       style={{
         width: "calc(100% - 24px)",
-
+        overflowX: "auto",
         height: "100%",
         borderRadius: borderRadiusValue,
         backgroundColor: bgColor,

@@ -69,6 +69,7 @@ const MLBPicks = ({
         backgroundColor: bgColor,
         color: textColor,
         padding: 12,
+        overflowX: "auto",
       }}
     >
       <div

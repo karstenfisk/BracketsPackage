@@ -9,25 +9,31 @@ const Pairing = ({
   pickSeries,
   showScores = false,
 }: MLBPairingProps) => {
-  const team1Color = !pickSeries
-    ? matchColor
-    : series.winner === null
-    ? matchColor
-    : pickSeries.winner !== pickSeries.team1Id
-    ? matchColor
-    : series.winner === series.team1Id
-    ? "rgba(98, 181, 98, 0.4)"
-    : "rgba(205, 92, 92, 0.4)";
+  const team1Color =
+    !pickSeries ||
+    Object.keys(pickSeries).length === 0 ||
+    !series ||
+    Object.keys(series).length === 0
+      ? matchColor
+      : series.winner === null || typeof series.winner !== "number"
+      ? matchColor
+      : typeof pickSeries.team1Id === "number" &&
+        series.winner === pickSeries.team1Id
+      ? "rgba(98, 181, 98, 0.4)"
+      : "rgba(205, 92, 92, 0.4)";
 
-  const team2Color = !pickSeries
-    ? matchColor
-    : series.winner === null
-    ? matchColor
-    : pickSeries.winner !== pickSeries.team2Id
-    ? matchColor
-    : series.winner === series.team2Id
-    ? "rgba(98, 181, 98, 0.4)"
-    : "rgba(205, 92, 92, 0.4)";
+  const team2Color =
+    !pickSeries ||
+    Object.keys(pickSeries).length === 0 ||
+    !series ||
+    Object.keys(series).length === 0
+      ? matchColor
+      : series.winner === null || typeof series.winner !== "number"
+      ? matchColor
+      : typeof pickSeries.team2Id === "number" &&
+        series.winner === pickSeries.team2Id
+      ? "rgba(98, 181, 98, 0.4)"
+      : "rgba(205, 92, 92, 0.4)";
 
   return (
     <div
