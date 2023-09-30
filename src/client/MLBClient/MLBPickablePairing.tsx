@@ -127,6 +127,9 @@ const PickablePairing = ({
         paddingTop: 7,
         paddingBottom: 7,
         color: textColor,
+        width: 256,
+        height: 64,
+        fontSize: 16,
       }}
     >
       <div
@@ -147,7 +150,7 @@ const PickablePairing = ({
       >
         <div
           style={{
-            width: "224px",
+            width: 210,
             display: "flex",
             flexDirection: "column",
             justifyContent: "space-around",
@@ -161,8 +164,12 @@ const PickablePairing = ({
               paddingLeft: "8px", // Converted from 0.5rem
               paddingRight: "8px", // Converted from 0.5rem
               alignItems: "center",
-              height: "50%",
+              height: 32,
               fontWeight: selected === "team1Id" ? "bold" : "normal",
+              width: 210,
+              overflow: "hidden",
+              whiteSpace: "nowrap",
+              textOverflow: "ellipsis",
             }}
             onClick={() => {
               if (series.team1Id) handleClick("team1Id");
@@ -173,10 +180,10 @@ const PickablePairing = ({
 
           <div
             style={{
-              width: "100%",
-              borderTop: "solid",
-              borderBottom: "none",
-              borderWidth: "1px",
+              width: 210,
+              borderTop: "none",
+              borderBottom: "solid",
+              borderWidth: 1,
               borderColor: accentColor,
             }}
           />
@@ -188,8 +195,12 @@ const PickablePairing = ({
               paddingLeft: "8px", // Converted from 0.5rem
               paddingRight: "8px", // Converted from 0.5rem
               alignItems: "center",
-              height: "50%",
+              height: 32,
               fontWeight: selected === "team2Id" ? "bold" : "normal",
+              width: 210,
+              overflow: "hidden",
+              whiteSpace: "nowrap",
+              textOverflow: "ellipsis",
             }}
             onClick={() => {
               if (series.team2Id) handleClick("team2Id");
@@ -207,22 +218,28 @@ const PickablePairing = ({
         </div>
         <div
           style={{
-            width: "32px",
+            width: 46,
             borderLeft: "1px solid",
             display: "flex",
-            // justifyContent: "center",
             alignItems: "center",
             flexDirection: "column",
-            height: "",
+            height: 64,
             borderColor: accentColor,
           }}
         >
           <label
             htmlFor="winin"
-            style={{ fontSize: 8, fontWeight: 800, paddingTop: 3, height: 5 }}
+            style={{
+              fontSize: 10,
+              fontWeight: 800,
+              height: 10,
+              paddingTop: 2,
+              letterSpacing: 0.5,
+            }}
           >
             Win In
           </label>
+          <div style={{ height: 10 }} />
           <select
             name="winin"
             style={{
@@ -230,8 +247,9 @@ const PickablePairing = ({
               backgroundColor: "transparent",
               border: "none",
               color: textColor,
-              height: 27,
-              marginTop: 9,
+              height: 20,
+              fontSize: 16,
+              fontWeight: 400,
             }}
             title="Win in how many games?"
             value={defaultValue ? defaultValue : 0}

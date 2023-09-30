@@ -63,13 +63,13 @@ const MLBPicks = ({
   return (
     <div
       style={{
-        width: "calc(100% - 24px)",
-        height: "100%",
+        display: "block",
         borderRadius: borderRadiusValue,
         backgroundColor: bgColor,
         color: textColor,
         padding: 12,
-        overflowX: "auto",
+        fontFamily: "sans-serif",
+        boxSizing: "border-box",
       }}
     >
       <div
@@ -78,10 +78,12 @@ const MLBPicks = ({
           justifyContent: "flex-start",
           alignItems: "flex-start",
           flexDirection: "column",
+          height: 220,
         }}
       >
         <div
           style={{
+            height: 32,
             display: "inline-block",
             ...labelStyle,
             letterSpacing: -1,
@@ -91,7 +93,7 @@ const MLBPicks = ({
         >
           American League
         </div>
-        <div style={{ display: "flex", alignItems: "center" }}>
+        <div style={{ display: "flex", alignItems: "center", height: 188 }}>
           <PickLeague
             data={data}
             type={"AL"}
@@ -103,13 +105,13 @@ const MLBPicks = ({
           <div
             style={{
               marginTop: 90,
-              height: 159,
-              minWidth: 33,
+              height: 160,
+              width: 33,
               borderRadius: "0 8px 0 0",
               borderTop: "1px solid",
               borderRight: "1px solid",
               borderColor: accentColor,
-              marginBottom: -69,
+              marginBottom: -70,
               backgroundColor: bgColor,
               zIndex: 1,
             }}
@@ -117,7 +119,13 @@ const MLBPicks = ({
         </div>
       </div>
 
-      <div style={{ display: "flex", alignItems: "center", maxHeight: 50 }}>
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          height: 50,
+        }}
+      >
         <div
           style={{
             ...labelStyle,
@@ -128,7 +136,7 @@ const MLBPicks = ({
         >
           Wildcard Round
         </div>
-        <div style={{ minWidth: 25 }} />
+        <div style={{ width: 25 }} />
         <div
           style={{
             ...labelStyle,
@@ -139,7 +147,7 @@ const MLBPicks = ({
         >
           Division Series
         </div>
-        <div style={{ minWidth: 40 }} />
+        <div style={{ width: 50 }} />
         <div
           style={{
             ...labelStyle,
@@ -150,14 +158,12 @@ const MLBPicks = ({
         >
           League Championship
         </div>
-        <div style={{ minWidth: 40 }} />
+        <div style={{ width: 25 }} />
         <div
           style={{
-            minWidth: 20,
-            maxWidth: 20,
-            borderBottom: "1px solid",
+            width: 25,
+            borderTop: "1px solid",
             borderColor: accentColor,
-            marginLeft: "1.28px",
             zIndex: 0,
           }}
         />
@@ -166,13 +172,14 @@ const MLBPicks = ({
           style={{
             display: "flex",
             flexDirection: "column",
-            justifyContent: "end",
-            marginBottom: -28,
+            width: 256,
+            marginTop: -28,
+            marginBottom: -32,
           }}
         >
           <span
             style={{
-              height: 20,
+              height: 32,
               fontWeight: "bold",
               fontSize: "larger",
               letterSpacing: -1,
@@ -182,14 +189,16 @@ const MLBPicks = ({
           >
             World Series
           </span>
-          <Pairing
-            matchColor={matchColor}
-            series={data.WS}
-            setData={setData}
-            data={data}
-            accentColor={accentColor}
-            textColor={textColor}
-          />
+          <div style={{ height: 78 }}>
+            <Pairing
+              matchColor={matchColor}
+              series={data.WS}
+              setData={setData}
+              data={data}
+              accentColor={accentColor}
+              textColor={textColor}
+            />
+          </div>
 
           <div
             style={{
@@ -203,8 +212,7 @@ const MLBPicks = ({
               alignItems: "center",
               justifyContent: "center",
               cursor: "pointer",
-              height: 30,
-              marginTop: "16px", // 1rem -> 16px
+              height: 32,
               fontWeight: "bold",
               color: textColor,
               backgroundColor: matchColor,
@@ -227,9 +235,10 @@ const MLBPicks = ({
           justifyContent: "flex-start",
           flexDirection: "column",
           alignItems: "flex-start",
+          height: 220,
         }}
       >
-        <div style={{ display: "flex", alignItems: "center" }}>
+        <div style={{ display: "flex", alignItems: "center", height: 188 }}>
           <PickLeague
             data={data}
             type={"NL"}
@@ -240,16 +249,16 @@ const MLBPicks = ({
           />
           <div
             style={{
-              marginBottom: 89,
+              marginBottom: 90,
               height: 160,
-              minWidth: 33,
+              width: 33,
               borderRadius: "0 0 8px 0",
               borderBottom: "1px solid ",
               borderRight: "1px solid ",
               borderColor: accentColor,
               backgroundColor: bgColor,
               zIndex: 1,
-              marginTop: -71,
+              marginTop: -70,
             }}
           />
         </div>
@@ -260,6 +269,8 @@ const MLBPicks = ({
             letterSpacing: -1,
             textTransform: "uppercase",
             color: accentColor,
+            marginBottom: 5,
+            height: 32,
           }}
         >
           National League

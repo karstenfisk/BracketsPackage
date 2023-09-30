@@ -20,24 +20,31 @@ export default function League({
           flexDirection: "column",
         }}
       >
-        <Pairing
-          series={type === "AL" ? data.ALW[1] : data.NLW[1]}
-          matchColor={matchColor}
-          accentColor={accentColor}
-          textColor={textColor}
-          pickSeries={type === "AL" ? picks?.ALW[1] : picks?.NLW[1]}
-          showScores={showScores}
-        />
+        <div style={{ width: 256, height: 78 }}>
+          <Pairing
+            series={type === "AL" ? data.ALW[1] : data.NLW[1]}
+            matchColor={matchColor}
+            accentColor={accentColor}
+            textColor={textColor}
+            showScores={showScores}
+            pickSeries={
+              picks ? (type === "AL" ? picks.ALW[1] : picks.NLW[1]) : undefined
+            }
+          />
+        </div>
         <div style={{ height: 20 }} />
-
-        <Pairing
-          series={type === "AL" ? data.ALW[2] : data.NLW[2]}
-          matchColor={matchColor}
-          accentColor={accentColor}
-          textColor={textColor}
-          pickSeries={type === "AL" ? picks?.ALW[2] : picks?.NLW[2]}
-          showScores={showScores}
-        />
+        <div style={{ width: 256, height: 78 }}>
+          <Pairing
+            series={type === "AL" ? data.ALW[2] : data.NLW[2]}
+            matchColor={matchColor}
+            accentColor={accentColor}
+            textColor={textColor}
+            showScores={showScores}
+            pickSeries={
+              picks ? (type === "AL" ? picks.ALW[2] : picks.NLW[2]) : undefined
+            }
+          />
+        </div>
       </div>
       <div
         style={{
@@ -48,8 +55,7 @@ export default function League({
       >
         <div
           style={{
-            paddingTop: 50,
-            paddingBottom: 49,
+            height: 98,
             borderColor: accentColor,
             borderStyle: "solid",
             borderTopWidth: 1,
@@ -67,23 +73,39 @@ export default function League({
           flexDirection: "column",
         }}
       >
-        <Pairing
-          series={type === "AL" ? data.ALDS[1] : data.NLDS[1]}
-          pickSeries={type === "AL" ? picks?.ALDS[1] : picks?.NLDS[1]}
-          matchColor={matchColor}
-          accentColor={accentColor}
-          textColor={textColor}
-          showScores={showScores}
-        />
+        <div style={{ width: 256, height: 78 }}>
+          <Pairing
+            series={type === "AL" ? data.ALDS[1] : data.NLDS[1]}
+            matchColor={matchColor}
+            accentColor={accentColor}
+            textColor={textColor}
+            showScores={showScores}
+            pickSeries={
+              picks
+                ? type === "AL"
+                  ? picks.ALDS[1]
+                  : picks.NLDS[1]
+                : undefined
+            }
+          />
+        </div>
         <div style={{ height: 20 }} />
-        <Pairing
-          series={type === "AL" ? data.ALDS[2] : data.NLDS[2]}
-          pickSeries={type === "AL" ? picks?.ALDS[2] : picks?.NLDS[2]}
-          matchColor={matchColor}
-          accentColor={accentColor}
-          textColor={textColor}
-          showScores={showScores}
-        />
+        <div style={{ width: 256, height: 78 }}>
+          <Pairing
+            series={type === "AL" ? data.ALDS[2] : data.NLDS[2]}
+            matchColor={matchColor}
+            accentColor={accentColor}
+            textColor={textColor}
+            showScores={showScores}
+            pickSeries={
+              picks
+                ? type === "AL"
+                  ? picks.ALDS[2]
+                  : picks.NLDS[2]
+                : undefined
+            }
+          />
+        </div>
       </div>
       <div
         style={{
@@ -94,8 +116,7 @@ export default function League({
       >
         <div
           style={{
-            paddingTop: 50,
-            paddingBottom: 49,
+            height: 98,
             borderColor: accentColor,
             borderStyle: "solid",
             borderTopWidth: 1,
@@ -108,8 +129,6 @@ export default function League({
         />
         <div
           style={{
-            height: 1,
-            maxHeight: 1,
             display: "flex",
             alignItems: "center",
             borderColor: accentColor,
@@ -129,14 +148,18 @@ export default function League({
           flexDirection: "column",
         }}
       >
-        <Pairing
-          series={type === "AL" ? data.ALCS : data.NLCS}
-          pickSeries={type === "AL" ? picks?.ALCS : picks?.NLCS}
-          matchColor={matchColor}
-          accentColor={accentColor}
-          textColor={textColor}
-          showScores={showScores}
-        />
+        <div style={{ width: 256, height: 78 }}>
+          <Pairing
+            series={picks && type === "AL" ? data.ALCS : data.NLCS}
+            matchColor={matchColor}
+            accentColor={accentColor}
+            textColor={textColor}
+            showScores={showScores}
+            pickSeries={
+              picks ? (type === "AL" ? picks.ALCS : picks.NLCS) : undefined
+            }
+          />
+        </div>
       </div>
     </div>
   );

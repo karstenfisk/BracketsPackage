@@ -15,25 +15,21 @@ const MLBBracket = ({
 }: MLBBracketProps) => {
   const borderRadiusValue = rounded ? "0.5rem" : "0";
   const labelStyle = {
-    width: "16rem",
-    minWidth: "16rem",
+    width: 256,
     fontWeight: 800,
     fontSize: "larger",
-    letterSpacing: -1,
     textTransform: "uppercase",
-    color: accentColor,
   };
 
   return (
     <div
       style={{
-        width: "calc(100% - 24px)",
-        overflowX: "auto",
-        height: "100%",
+        display: "block",
         borderRadius: borderRadiusValue,
         backgroundColor: bgColor,
         color: textColor,
         padding: 12,
+        fontFamily: "sans-serif",
       }}
     >
       <div
@@ -67,13 +63,13 @@ const MLBBracket = ({
           <div
             style={{
               marginTop: 90,
-              height: 159,
+              height: 160,
               minWidth: 33,
               borderRadius: "0 8px 0 0",
               borderTop: "1px solid",
               borderRight: "1px solid",
               borderColor: accentColor,
-              marginBottom: -69,
+              marginBottom: -70,
               backgroundColor: bgColor,
               zIndex: 1,
             }}
@@ -81,7 +77,7 @@ const MLBBracket = ({
         </div>
       </div>
 
-      <div style={{ display: "flex", alignItems: "center", maxHeight: 50 }}>
+      <div style={{ display: "flex", alignItems: "center", height: 50 }}>
         <div
           style={{
             ...labelStyle,
@@ -92,7 +88,7 @@ const MLBBracket = ({
         >
           Wildcard Round
         </div>
-        <div style={{ minWidth: 25 }} />
+        <div style={{ width: 25 }} />
         <div
           style={{
             ...labelStyle,
@@ -103,7 +99,7 @@ const MLBBracket = ({
         >
           Division Series
         </div>
-        <div style={{ minWidth: 40 }} />
+        <div style={{ width: 50 }} />
         <div
           style={{
             ...labelStyle,
@@ -114,14 +110,12 @@ const MLBBracket = ({
         >
           League Championship
         </div>
-        <div style={{ minWidth: 40 }} />
+        <div style={{ width: 25 }} />
         <div
           style={{
-            minWidth: 20,
-            maxWidth: 20,
-            borderBottom: "1px solid",
+            width: 25,
+            borderTop: "1px solid",
             borderColor: accentColor,
-            marginLeft: "1.28px",
             zIndex: 0,
           }}
         />
@@ -130,13 +124,14 @@ const MLBBracket = ({
           style={{
             display: "flex",
             flexDirection: "column",
-            justifyContent: "end",
-            marginBottom: -28,
+            width: 256,
+            marginTop: -28,
+            marginBottom: -30,
           }}
         >
           <span
             style={{
-              height: 20,
+              height: 32,
               fontWeight: "bold",
               fontSize: "larger",
               letterSpacing: -1,
@@ -146,28 +141,30 @@ const MLBBracket = ({
           >
             World Series
           </span>
-          <Pairing
-            series={bracketData.WS}
-            accentColor={accentColor}
-            textColor={textColor}
-            matchColor={matchColor}
-            pickSeries={picks?.WS ? picks.WS : undefined}
-            showScores={showScores}
-          />
+          <div style={{ height: 78 }}>
+            <Pairing
+              matchColor={matchColor}
+              series={bracketData.WS}
+              showScores={showScores}
+              pickSeries={picks?.WS}
+              accentColor={accentColor}
+              textColor={textColor}
+            />
+          </div>
+
           <div
             style={{
-              width: "256px",
+              width: "256px", // 16rem -> 256px
               border: "solid",
               borderWidth: "1px",
-              borderRadius: "8px",
+              borderRadius: "8px", // 0.5rem -> 8px
               borderColor: accentColor,
               boxShadow: "0 1px 2px 0 rgba(0, 0, 0, 0.05)",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
               cursor: "pointer",
-              height: 30,
-              marginTop: "16px",
+              height: 32,
               fontWeight: "bold",
               color: textColor,
               backgroundColor: matchColor,
@@ -205,7 +202,7 @@ const MLBBracket = ({
           />
           <div
             style={{
-              marginBottom: 89,
+              marginBottom: 90,
               height: 160,
               minWidth: 33,
               borderRadius: "0 0 8px 0",
@@ -214,7 +211,7 @@ const MLBBracket = ({
               borderColor: accentColor,
               backgroundColor: bgColor,
               zIndex: 1,
-              marginTop: -71,
+              marginTop: -70,
             }}
           />
         </div>

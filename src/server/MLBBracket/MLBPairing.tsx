@@ -43,6 +43,8 @@ const Pairing = ({
         paddingTop: 7,
         paddingBottom: 7,
         color: textColor,
+        width: 256,
+        height: 64,
       }}
     >
       <div
@@ -69,7 +71,7 @@ const Pairing = ({
             paddingLeft: "8px",
             paddingRight: "8px",
             alignItems: "center",
-            height: "50%",
+            height: 32,
             backgroundColor: team1Color,
           }}
         >
@@ -79,7 +81,7 @@ const Pairing = ({
 
         <div
           style={{
-            width: "100%",
+            width: 256,
             borderTop: "solid",
             borderBottom: "none",
             borderWidth: "1px",
@@ -94,7 +96,7 @@ const Pairing = ({
             paddingLeft: "8px",
             paddingRight: "8px",
             alignItems: "center",
-            height: "50%",
+            height: 32,
             backgroundColor: team2Color,
           }}
         >

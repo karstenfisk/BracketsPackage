@@ -19,24 +19,27 @@ export default function PickLeague({
           flexDirection: "column",
         }}
       >
-        <Pairing
-          series={type === "AL" ? data.ALW[1] : data.NLW[1]}
-          setData={setData}
-          data={data}
-          matchColor={matchColor}
-          accentColor={accentColor}
-          textColor={textColor}
-        />
+        <div style={{ width: 256, height: 78 }}>
+          <Pairing
+            series={type === "AL" ? data.ALW[1] : data.NLW[1]}
+            setData={setData}
+            data={data}
+            matchColor={matchColor}
+            accentColor={accentColor}
+            textColor={textColor}
+          />
+        </div>
         <div style={{ height: 20 }} />
-
-        <Pairing
-          series={type === "AL" ? data.ALW[2] : data.NLW[2]}
-          setData={setData}
-          data={data}
-          matchColor={matchColor}
-          accentColor={accentColor}
-          textColor={textColor}
-        />
+        <div style={{ width: 256, height: 78 }}>
+          <Pairing
+            series={type === "AL" ? data.ALW[2] : data.NLW[2]}
+            setData={setData}
+            data={data}
+            matchColor={matchColor}
+            accentColor={accentColor}
+            textColor={textColor}
+          />
+        </div>
       </div>
       <div
         style={{
@@ -47,9 +50,10 @@ export default function PickLeague({
       >
         <div
           style={{
-            paddingTop: 50,
-            paddingBottom: 49,
+            height: 98,
             borderColor: accentColor,
+            borderTopColor: accentColor,
+            borderBottomColor: accentColor,
             borderStyle: "solid",
             borderTopWidth: 1,
             borderBottomWidth: 1,
@@ -66,23 +70,27 @@ export default function PickLeague({
           flexDirection: "column",
         }}
       >
-        <Pairing
-          series={type === "AL" ? data.ALDS[1] : data.NLDS[1]}
-          setData={setData}
-          data={data}
-          matchColor={matchColor}
-          accentColor={accentColor}
-          textColor={textColor}
-        />
+        <div style={{ width: 256, height: 78 }}>
+          <Pairing
+            series={type === "AL" ? data.ALDS[1] : data.NLDS[1]}
+            setData={setData}
+            data={data}
+            matchColor={matchColor}
+            accentColor={accentColor}
+            textColor={textColor}
+          />
+        </div>
         <div style={{ height: 20 }} />
-        <Pairing
-          series={type === "AL" ? data.ALDS[2] : data.NLDS[2]}
-          setData={setData}
-          data={data}
-          matchColor={matchColor}
-          accentColor={accentColor}
-          textColor={textColor}
-        />
+        <div style={{ width: 256, height: 78 }}>
+          <Pairing
+            series={type === "AL" ? data.ALDS[2] : data.NLDS[2]}
+            setData={setData}
+            data={data}
+            matchColor={matchColor}
+            accentColor={accentColor}
+            textColor={textColor}
+          />
+        </div>
       </div>
       <div
         style={{
@@ -93,9 +101,10 @@ export default function PickLeague({
       >
         <div
           style={{
-            paddingTop: 50,
-            paddingBottom: 49,
+            height: 98,
             borderColor: accentColor,
+            borderTopColor: accentColor,
+            borderBottomColor: accentColor,
             borderStyle: "solid",
             borderTopWidth: 1,
             borderBottomWidth: 1,
@@ -107,8 +116,6 @@ export default function PickLeague({
         />
         <div
           style={{
-            height: 1,
-            maxHeight: 1,
             display: "flex",
             alignItems: "center",
             borderColor: accentColor,
@@ -128,14 +135,16 @@ export default function PickLeague({
           flexDirection: "column",
         }}
       >
-        <Pairing
-          series={type === "AL" ? data.ALCS : data.NLCS}
-          setData={setData}
-          data={data}
-          matchColor={matchColor}
-          accentColor={accentColor}
-          textColor={textColor}
-        />
+        <div style={{ width: 256, height: 78 }}>
+          <Pairing
+            series={type === "AL" ? data.ALCS : data.NLCS}
+            setData={setData}
+            data={data}
+            matchColor={matchColor}
+            accentColor={accentColor}
+            textColor={textColor}
+          />
+        </div>
       </div>
     </div>
   );
