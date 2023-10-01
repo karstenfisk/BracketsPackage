@@ -249,7 +249,9 @@ const PickablePairing = ({
               outlineColor: "transparent",
               color: textColor,
               height: 20,
-              fontSize: 16,
+              fontSize: 12,
+              width: 46,
+              textAlign: "center",
               fontWeight: 400,
             }}
             title="Win in how many games?"
