@@ -143,6 +143,11 @@ const MLBBracket = ({
               letterSpacing: -1,
               textTransform: "uppercase",
               color: accentColor,
+              width: 256,
+              minWidth: 256,
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
             }}
           >
             World Series
