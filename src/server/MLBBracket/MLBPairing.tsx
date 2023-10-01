@@ -40,11 +40,12 @@ const Pairing = ({
       style={{
         display: "flex",
         alignItems: "center",
-        paddingTop: 7,
-        paddingBottom: 7,
+        paddingTop: 4,
+        paddingBottom: 4,
         color: textColor,
         width: 256,
         height: 64,
+        fontSize: 16,
       }}
     >
       <div

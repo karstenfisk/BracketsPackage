@@ -11,15 +11,31 @@ export default function PickLeague({
   matchColor = "",
 }: MLBPickLeagueProps) {
   return (
-    <div style={{ display: "flex", alignItems: "center" }}>
+    <div
+      style={{
+        display: "flex",
+        height: 160,
+        alignItems: "center",
+      }}
+    >
       <div
         style={{
+          width: 537,
+          minWidth: 537,
+          height: 160,
           display: "flex",
-          alignItems: "center",
+          justifyContent: "center",
           flexDirection: "column",
         }}
       >
-        <div style={{ width: 256, height: 78 }}>
+        <div
+          style={{
+            minHeight: 66,
+            maxHeight: 66,
+            display: "flex",
+            alignItems: "center",
+          }}
+        >
           <Pairing
             series={type === "AL" ? data.ALW[1] : data.NLW[1]}
             setData={setData}
@@ -28,49 +44,13 @@ export default function PickLeague({
             accentColor={accentColor}
             textColor={textColor}
           />
-        </div>
-        <div style={{ height: 20 }} />
-        <div style={{ width: 256, height: 78 }}>
-          <Pairing
-            series={type === "AL" ? data.ALW[2] : data.NLW[2]}
-            setData={setData}
-            data={data}
-            matchColor={matchColor}
-            accentColor={accentColor}
-            textColor={textColor}
+          <div
+            style={{
+              width: 25,
+              borderTop: "1px solid",
+              borderTopColor: accentColor,
+            }}
           />
-        </div>
-      </div>
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          flexDirection: "column",
-        }}
-      >
-        <div
-          style={{
-            height: 98,
-            borderColor: accentColor,
-            borderTopColor: accentColor,
-            borderBottomColor: accentColor,
-            borderStyle: "solid",
-            borderTopWidth: 1,
-            borderBottomWidth: 1,
-            width: 25,
-            borderRightWidth: 0,
-            borderLeftWidth: 0,
-          }}
-        />
-      </div>
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          flexDirection: "column",
-        }}
-      >
-        <div style={{ width: 256, height: 78 }}>
           <Pairing
             series={type === "AL" ? data.ALDS[1] : data.NLDS[1]}
             setData={setData}
@@ -80,8 +60,30 @@ export default function PickLeague({
             textColor={textColor}
           />
         </div>
-        <div style={{ height: 20 }} />
-        <div style={{ width: 256, height: 78 }}>
+        <div style={{ height: 28 }} />
+        <div
+          style={{
+            minHeight: 66,
+            maxHeight: 66,
+            display: "flex",
+            alignItems: "center",
+          }}
+        >
+          <Pairing
+            series={type === "AL" ? data.ALW[2] : data.NLW[2]}
+            setData={setData}
+            data={data}
+            matchColor={matchColor}
+            accentColor={accentColor}
+            textColor={textColor}
+          />
+          <div
+            style={{
+              width: 25,
+              borderTop: "1px solid",
+              borderTopColor: accentColor,
+            }}
+          />
           <Pairing
             series={type === "AL" ? data.ALDS[2] : data.NLDS[2]}
             setData={setData}
@@ -94,58 +96,51 @@ export default function PickLeague({
       </div>
       <div
         style={{
+          height: 160,
           display: "flex",
           alignItems: "center",
-          flexDirection: "row",
+          justifyContent: "center",
         }}
       >
         <div
           style={{
-            height: 98,
-            borderColor: accentColor,
-            borderTopColor: accentColor,
-            borderBottomColor: accentColor,
-            borderStyle: "solid",
-            borderTopWidth: 1,
-            borderBottomWidth: 1,
-            width: 25,
-            borderRightWidth: 1,
-            borderLeftWidth: 0,
-            borderRadius: "0 8px 8px 0", // Converted 0.5rem to 8px
-          }}
-        />
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
+            height: 94,
+            marginTop: 33,
+            marginBottom: 33,
+            width: 20,
             borderColor: accentColor,
             borderStyle: "solid",
-            borderTopWidth: 1,
-            borderBottomWidth: 0,
-            borderRightWidth: 0,
-            borderLeftWidth: 0,
-            width: 15,
+            borderWidth: "1px 1px 1px 0",
+            borderRadius: "0 8px 8px 0",
           }}
         />
       </div>
       <div
         style={{
-          display: "flex",
-          alignItems: "center",
-          flexDirection: "column",
+          width: 18,
+          borderTop: "1px solid",
+          borderTopColor: accentColor,
         }}
-      >
-        <div style={{ width: 256, height: 78 }}>
-          <Pairing
-            series={type === "AL" ? data.ALCS : data.NLCS}
-            setData={setData}
-            data={data}
-            matchColor={matchColor}
-            accentColor={accentColor}
-            textColor={textColor}
-          />
-        </div>
-      </div>
+      />
+      <Pairing
+        series={type === "AL" ? data.ALCS : data.NLCS}
+        setData={setData}
+        data={data}
+        matchColor={matchColor}
+        accentColor={accentColor}
+        textColor={textColor}
+      />
+      <div
+        style={{
+          width: 25,
+          borderStyle: "solid",
+          borderWidth: type === "AL" ? "1px 1px 0 0" : "0 1px 1px 0",
+          borderColor: accentColor,
+          height: 160,
+          marginBottom: type === "AL" ? -160 : 160,
+          borderRadius: type === "AL" ? "0 8px 0 0" : "0 0 8px 0",
+        }}
+      />
     </div>
   );
 }

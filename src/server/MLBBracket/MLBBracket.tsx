@@ -30,93 +30,97 @@ const MLBBracket = ({
         color: textColor,
         padding: 12,
         fontFamily: "sans-serif",
+        width: 1150,
+        overflowX: "hidden",
+        minHeight: 420,
+        maxHeight: 420,
+        boxSizing: "content-box",
       }}
     >
       <div
         style={{
+          ...labelStyle,
+          letterSpacing: -1,
+          textTransform: "uppercase",
+          color: accentColor,
+          height: 25,
+          width: 256,
+          minWidth: 256,
           display: "flex",
-          justifyContent: "flex-start",
-          alignItems: "flex-start",
-          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "baseline",
         }}
       >
-        <div
-          style={{
-            ...labelStyle,
-            letterSpacing: -1,
-            textTransform: "uppercase",
-            color: accentColor,
-          }}
-        >
-          American League
-        </div>
-        <div style={{ display: "flex", alignItems: "center" }}>
-          <League
-            data={bracketData}
-            type={"AL"}
-            accentColor={accentColor}
-            textColor={textColor}
-            matchColor={matchColor}
-            picks={picks ? picks : undefined}
-            showScores={showScores}
-          />
-          <div
-            style={{
-              marginTop: 90,
-              height: 160,
-              minWidth: 33,
-              borderRadius: "0 8px 0 0",
-              borderTop: "1px solid",
-              borderRight: "1px solid",
-              borderColor: accentColor,
-              marginBottom: -70,
-              backgroundColor: bgColor,
-              zIndex: 1,
-            }}
-          />
-        </div>
+        American League
       </div>
+      <League
+        data={bracketData}
+        type={"AL"}
+        accentColor={accentColor}
+        textColor={textColor}
+        matchColor={matchColor}
+        picks={picks ? picks : undefined}
+        showScores={showScores}
+      />
 
-      <div style={{ display: "flex", alignItems: "center", height: 50 }}>
+      <div style={{ display: "flex", height: 50, overflowY: "visible" }}>
         <div
           style={{
             ...labelStyle,
             letterSpacing: -1,
             textTransform: "uppercase",
             color: accentColor,
+            width: 256,
+            minWidth: 256,
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
           }}
         >
           Wildcard Round
         </div>
-        <div style={{ width: 25 }} />
+        <div style={{ width: 28, minWidth: 28 }} />
         <div
           style={{
             ...labelStyle,
             letterSpacing: -1,
             textTransform: "uppercase",
             color: accentColor,
+            width: 256,
+            minWidth: 256,
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
           }}
         >
           Division Series
         </div>
-        <div style={{ width: 50 }} />
+        <div style={{ width: 38, minWidth: 38 }} />
         <div
           style={{
             ...labelStyle,
             letterSpacing: -1,
             textTransform: "uppercase",
             color: accentColor,
+            width: 256,
+            minWidth: 256,
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
           }}
         >
           League Championship
         </div>
-        <div style={{ width: 25 }} />
+        <div style={{ width: 25, minWidth: 25 }} />
         <div
           style={{
-            width: 25,
+            width: 18,
             borderTop: "1px solid",
             borderColor: accentColor,
             zIndex: 0,
+            minWidth: 18,
+            marginTop: 25,
+            marginLeft: -1,
           }}
         />
 
@@ -125,8 +129,10 @@ const MLBBracket = ({
             display: "flex",
             flexDirection: "column",
             width: 256,
-            marginTop: -28,
-            marginBottom: -30,
+            minWidth: 256,
+            height: 130,
+            marginTop: -40,
+            justifyContent: "center",
           }}
         >
           <span
@@ -141,16 +147,14 @@ const MLBBracket = ({
           >
             World Series
           </span>
-          <div style={{ height: 78 }}>
-            <Pairing
-              matchColor={matchColor}
-              series={bracketData.WS}
-              showScores={showScores}
-              pickSeries={picks?.WS}
-              accentColor={accentColor}
-              textColor={textColor}
-            />
-          </div>
+          <Pairing
+            matchColor={matchColor}
+            series={bracketData.WS}
+            showScores={showScores}
+            pickSeries={picks?.WS}
+            accentColor={accentColor}
+            textColor={textColor}
+          />
 
           <div
             style={{
@@ -182,49 +186,31 @@ const MLBBracket = ({
         </div>
       </div>
 
+      <League
+        data={bracketData}
+        type={"NL"}
+        accentColor={accentColor}
+        textColor={textColor}
+        matchColor={matchColor}
+        picks={picks ? picks : undefined}
+        showScores={showScores}
+      />
+
       <div
         style={{
+          ...labelStyle,
+          letterSpacing: -1,
+          textTransform: "uppercase",
+          color: accentColor,
+          height: 25,
+          width: 256,
+          minWidth: 256,
           display: "flex",
-          justifyContent: "flex-start",
-          flexDirection: "column",
-          alignItems: "flex-start",
+          justifyContent: "center",
+          alignItems: "baseline",
         }}
       >
-        <div style={{ display: "flex", alignItems: "center" }}>
-          <League
-            data={bracketData}
-            type={"NL"}
-            accentColor={accentColor}
-            textColor={textColor}
-            matchColor={matchColor}
-            picks={picks ? picks : undefined}
-            showScores={showScores}
-          />
-          <div
-            style={{
-              marginBottom: 90,
-              height: 160,
-              minWidth: 33,
-              borderRadius: "0 0 8px 0",
-              borderBottom: "1px solid",
-              borderRight: "1px solid",
-              borderColor: accentColor,
-              backgroundColor: bgColor,
-              zIndex: 1,
-              marginTop: -70,
-            }}
-          />
-        </div>
-        <div
-          style={{
-            ...labelStyle,
-            letterSpacing: -1,
-            textTransform: "uppercase",
-            color: accentColor,
-          }}
-        >
-          National League
-        </div>
+        National League
       </div>
     </div>
   );
