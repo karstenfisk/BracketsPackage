@@ -30,9 +30,7 @@ const PickablePairing = ({
       : null
   );
   const [options, setOptions] = useState<number[]>([]);
-  const [defaultValue, setDefaultValue] = useState<
-    2 | 3 | 4 | 5 | 6 | 7 | null
-  >(null);
+  const [defaultValue, setDefaultValue] = useState<2 | 3 | 4 | 5 | 6 | 7>(2);
 
   useEffect(() => {
     switch (series.bestOf) {
@@ -62,7 +60,7 @@ const PickablePairing = ({
         break;
       default:
         setOptions([]);
-        setDefaultValue(null);
+        setDefaultValue(2);
     }
   }, [series.bestOf, series.winIn]);
 
@@ -255,7 +253,7 @@ const PickablePairing = ({
               fontWeight: 400,
             }}
             title="Win in how many games?"
-            value={defaultValue ? defaultValue : 0}
+            value={defaultValue}
             onChange={handleWinIn}
           >
             {options.map((option) => (
