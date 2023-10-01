@@ -251,7 +251,6 @@ const PickablePairing = ({
               backgroundColor: "transparent", // No change
               border: "none", // No change
               outlineColor: "transparent", // No change
-              textAlign: "center",
               fontWeight: 400, // No change
               backgroundPosition: "center", // No change
               backgroundRepeat: "no-repeat", // No change
