@@ -282,13 +282,11 @@ const PickablePairing = ({
               outline: "transparent none", // Added
               marginLeft: 12, // Added and converted to camelCase
               padding: 3, // Added
-              color: textColor,
               fontSize: 14,
               display: "inline-block", // Added
               width: 46, // No change
-              backgroundColor: matchColor,
-              borderRadius: 6,
-              border: "none",
+              backgroundColor: "transparent", // No change
+              border: "none", // No change
               outlineColor: "transparent", // No change
               fontWeight: 400, // No change
               backgroundPosition: "center", // No change
