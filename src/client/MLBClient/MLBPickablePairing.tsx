@@ -279,17 +279,23 @@ const PickablePairing = ({
           <select
             name="winin"
             style={{
-              outline: "none",
-              backgroundColor: "transparent",
-              border: "none",
-              outlineColor: "transparent",
+              outline: "transparent none", // Added
+              marginLeft: 12, // Added and converted to camelCase
+              padding: 3, // Added
               color: textColor,
-              height: 20,
-              fontSize: 16,
-              fontWeight: 400,
+              fontSize: 14,
+              display: "inline-block", // Added
+              width: 46, // No change
+              backgroundColor: "transparent", // No change
+              border: "none", // No change
+              outlineColor: "transparent", // No change
+              fontWeight: 400, // No change
+              backgroundPosition: "center", // No change
+              backgroundRepeat: "no-repeat", // No change
+              backgroundSize: "20px 20px", // No change
             }}
             title="Win in how many games?"
-            value={defaultValue ? defaultValue : 0}
+            value={defaultValue}
             onChange={handleWinIn}
           >
             {options.map((option) => (
