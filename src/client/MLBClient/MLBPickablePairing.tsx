@@ -286,8 +286,9 @@ const PickablePairing = ({
               fontSize: 14,
               display: "inline-block", // Added
               width: 46, // No change
-              backgroundColor: "transparent", // No change
-              border: "none", // No change
+              backgroundColor: matchColor,
+              borderRadius: 6,
+              border: "none",
               outlineColor: "transparent", // No change
               fontWeight: 400, // No change
               backgroundPosition: "center", // No change
