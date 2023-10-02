@@ -173,7 +173,25 @@ const PickablePairing = ({
               if (series.team1Id) handleClick("team1Id");
             }}
           >
-            <span>{series.team1?.teamName}</span>
+            <span
+              style={{
+                maxWidth: 210,
+                overflow: "hidden",
+                whiteSpace: "nowrap",
+                textOverflow: "ellipsis",
+              }}
+            >
+              <span
+                style={{
+                  fontSize: 14,
+                  opacity: 0.5,
+                  paddingRight: 3,
+                }}
+              >
+                {series.team1?.seed}
+              </span>{" "}
+              {series.team1?.teamName}
+            </span>
           </div>
 
           <div
@@ -204,8 +222,28 @@ const PickablePairing = ({
               if (series.team2Id) handleClick("team2Id");
             }}
           >
-            <div style={{ display: "flex", alignItems: "center" }}>
-              <span>{series.team2?.teamName}</span>
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                maxWidth: 200,
+                overflow: "hidden",
+                whiteSpace: "nowrap",
+                textOverflow: "ellipsis",
+              }}
+            >
+              <span>
+                <span
+                  style={{
+                    fontSize: 14,
+                    opacity: 0.5,
+                    paddingRight: 3,
+                  }}
+                >
+                  {series.team2?.seed}
+                </span>{" "}
+                {series.team2?.teamName}
+              </span>
               {series.round === "ALDS" || series.round === "NLDS" ? (
                 <span style={{ fontSize: 12, opacity: 0.5, paddingLeft: 4 }}>
                   (Bye)
@@ -241,23 +279,17 @@ const PickablePairing = ({
           <select
             name="winin"
             style={{
-              outline: "transparent none", // Added
-              marginLeft: 12, // Added and converted to camelCase
-              padding: 3, // Added
+              outline: "none",
+              backgroundColor: "transparent",
+              border: "none",
+              outlineColor: "transparent",
               color: textColor,
-              fontSize: 14,
-              display: "inline-block", // Added
-              width: 46, // No change
-              backgroundColor: "transparent", // No change
-              border: "none", // No change
-              outlineColor: "transparent", // No change
-              fontWeight: 400, // No change
-              backgroundPosition: "center", // No change
-              backgroundRepeat: "no-repeat", // No change
-              backgroundSize: "20px 20px", // No change
+              height: 20,
+              fontSize: 16,
+              fontWeight: 400,
             }}
             title="Win in how many games?"
-            value={defaultValue}
+            value={defaultValue ? defaultValue : 0}
             onChange={handleWinIn}
           >
             {options.map((option) => (

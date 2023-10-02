@@ -76,7 +76,18 @@ const Pairing = ({
             backgroundColor: team1Color,
           }}
         >
-          <span>{series.team1?.teamName}</span>
+          <span>
+            <span
+              style={{
+                fontSize: 14,
+                opacity: 0.5,
+                paddingRight: 3,
+              }}
+            >
+              {series.team1?.seed}
+            </span>{" "}
+            {series.team1?.teamName}
+          </span>
           {showScores ? <span>{series.team1Score}</span> : null}
         </div>
 
@@ -102,7 +113,18 @@ const Pairing = ({
           }}
         >
           <div style={{ display: "flex", alignItems: "center" }}>
-            <span>{series.team2?.teamName}</span>
+            <span>
+              <span
+                style={{
+                  fontSize: 14,
+                  opacity: 0.5,
+                  paddingRight: 3,
+                }}
+              >
+                {series.team2?.seed}
+              </span>{" "}
+              {series.team2?.teamName}
+            </span>
             {series.round === "ALDS" || series.round === "NLDS" ? (
               <span style={{ fontSize: 12, opacity: 0.5, paddingLeft: 4 }}>
                 (Bye)
