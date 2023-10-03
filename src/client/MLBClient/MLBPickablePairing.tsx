@@ -72,7 +72,7 @@ const PickablePairing = ({
         ? "team2Id"
         : null
     );
-  }, [series]);
+  }, [series, data]);
 
   const handleWinIn = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const newWinIn = Number(e.target.value) as 2 | 3 | 4 | 5 | 6 | 7;
@@ -188,6 +188,7 @@ const PickablePairing = ({
             ></div>
             <span
               style={{
+                zIndex: 1,
                 maxWidth: 210,
                 overflow: "hidden",
                 whiteSpace: "nowrap",
@@ -250,6 +251,7 @@ const PickablePairing = ({
             ></div>
             <div
               style={{
+                zIndex: 1,
                 display: "flex",
                 alignItems: "center",
                 maxWidth: 200,
