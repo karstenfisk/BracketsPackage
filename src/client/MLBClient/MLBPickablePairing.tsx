@@ -168,11 +168,24 @@ const PickablePairing = ({
               overflow: "hidden",
               whiteSpace: "nowrap",
               textOverflow: "ellipsis",
+              position: "relative",
             }}
             onClick={() => {
               if (series.team1Id) handleClick("team1Id");
             }}
           >
+            <div
+              style={{
+                backgroundColor:
+                  selected === "team1Id" ? accentColor : "transparent",
+                opacity: selected === "team1Id" ? 0.4 : 1,
+                height: 32,
+                width: 210,
+                marginLeft: -8,
+                position: "absolute",
+                borderRadius: "6px 0 0 0", // Converted from 0.5rem
+              }}
+            ></div>
             <span
               style={{
                 maxWidth: 210,
@@ -217,11 +230,24 @@ const PickablePairing = ({
               overflow: "hidden",
               whiteSpace: "nowrap",
               textOverflow: "ellipsis",
+              position: "relative",
             }}
             onClick={() => {
               if (series.team2Id) handleClick("team2Id");
             }}
           >
+            <div
+              style={{
+                backgroundColor:
+                  selected === "team2Id" ? accentColor : "transparent",
+                opacity: selected === "team2Id" ? 0.4 : 1,
+                height: 32,
+                width: 210,
+                marginLeft: -8,
+                position: "absolute",
+                borderRadius: "0 0 0 6px", // Converted from 0.5rem
+              }}
+            ></div>
             <div
               style={{
                 display: "flex",
