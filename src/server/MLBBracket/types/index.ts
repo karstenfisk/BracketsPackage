@@ -72,7 +72,7 @@ export interface MLBBracketProps {
   accentColor?: string;
   matchColor?: string;
   rounded?: boolean;
-  picks?: MLBBracketData;
+  picks?: MLBPicks;
   showScores?: boolean;
 }
 
@@ -83,7 +83,7 @@ export interface MLBLeagueProps {
   accentColor?: string;
   matchColor?: string;
   rounded?: boolean;
-  picks?: MLBBracketData;
+  picks?: MLBPicks;
   showScores?: boolean;
 }
 
@@ -93,7 +93,7 @@ export interface MLBPairingProps {
   accentColor?: string;
   matchColor?: string;
   rounded?: boolean;
-  pickSeries?: MLBSeriesDetails;
+  pickSeries?: MLBPickSeriesDetails;
   showScores?: boolean;
 }
 
@@ -105,4 +105,29 @@ export interface MLBBracketData {
   ALCS: MLBSeriesDetails;
   NLCS: MLBSeriesDetails;
   WS: MLBSeriesDetails;
+}
+
+export interface MLBPickSeriesDetails {
+  round: "ALW" | "NLW" | "ALDS" | "NLDS" | "ALCS" | "NLCS" | "WS";
+  title: string;
+  gameNumber: 1 | 2;
+  bestOf: 3 | 5 | 7;
+  team1Score?: number;
+  team2Score?: number;
+  team1Id?: number;
+  team2Id?: number;
+  final: boolean;
+  winner: number | null;
+  team1?: MLBTeamDetails;
+  team2?: MLBTeamDetails;
+  winIn?: 2 | 3 | 4 | 5 | 6 | 7;
+}
+interface MLBPicks {
+  ALW: Record<1 | 2, MLBPickSeriesDetails>;
+  NLW: Record<1 | 2, MLBPickSeriesDetails>;
+  ALDS: Record<1 | 2, MLBPickSeriesDetails>;
+  NLDS: Record<1 | 2, MLBPickSeriesDetails>;
+  ALCS: MLBPickSeriesDetails;
+  NLCS: MLBPickSeriesDetails;
+  WS: MLBPickSeriesDetails;
 }

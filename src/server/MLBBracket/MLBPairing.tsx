@@ -13,7 +13,8 @@ const Pairing = ({
     !pickSeries ||
     Object.keys(pickSeries).length === 0 ||
     !series ||
-    Object.keys(series).length === 0
+    Object.keys(series).length === 0 ||
+    pickSeries.winner !== pickSeries.team1Id
       ? matchColor
       : series.winner === null || typeof series.winner !== "number"
       ? matchColor
@@ -26,7 +27,8 @@ const Pairing = ({
     !pickSeries ||
     Object.keys(pickSeries).length === 0 ||
     !series ||
-    Object.keys(series).length === 0
+    Object.keys(series).length === 0 ||
+    pickSeries.winner !== pickSeries.team2Id
       ? matchColor
       : series.winner === null || typeof series.winner !== "number"
       ? matchColor
@@ -59,7 +61,6 @@ const Pairing = ({
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-around",
-          cursor: "pointer",
           height: "64px",
           overflow: "hidden",
           backgroundColor: matchColor,
@@ -74,9 +75,29 @@ const Pairing = ({
             alignItems: "center",
             height: 32,
             backgroundColor: team1Color,
+            position: "relative",
           }}
         >
-          <span>
+          {pickSeries &&
+          !series.winner &&
+          pickSeries.winner === series.team1Id ? (
+            <div
+              style={{
+                backgroundColor: accentColor,
+                opacity: 0.4,
+                height: 32,
+                width: 256,
+                marginLeft: -8,
+                position: "absolute",
+                borderRadius: "6px 6px 0 0", // Converted from 0.5rem
+              }}
+            ></div>
+          ) : null}
+          <span
+            style={{
+              zIndex: 1,
+            }}
+          >
             <span
               style={{
                 fontSize: 14,
@@ -87,6 +108,21 @@ const Pairing = ({
               {series.team1?.seed}
             </span>{" "}
             {series.team1?.teamName}
+            {pickSeries &&
+            pickSeries.winner === series.team1Id &&
+            pickSeries.team1Id === series.team1Id ? (
+              <span
+                style={{
+                  fontSize: 11,
+                  opacity: 0.8,
+                  paddingLeft: 4,
+                  fontWeight: "bold",
+                  letterSpacing: -1,
+                }}
+              >
+                ( in {pickSeries.winIn} )
+              </span>
+            ) : null}
           </span>
           {showScores ? <span>{series.team1Score}</span> : null}
         </div>
@@ -110,9 +146,25 @@ const Pairing = ({
             alignItems: "center",
             height: 32,
             backgroundColor: team2Color,
+            position: "relative",
           }}
         >
-          <div style={{ display: "flex", alignItems: "center" }}>
+          {pickSeries &&
+          !series.winner &&
+          pickSeries.winner === series.team2Id ? (
+            <div
+              style={{
+                backgroundColor: accentColor,
+                opacity: 0.4,
+                height: 32,
+                width: 256,
+                marginLeft: -8,
+                position: "absolute",
+                borderRadius: "0 0 6px 6px", // Converted from 0.5rem
+              }}
+            ></div>
+          ) : null}
+          <div style={{ display: "flex", alignItems: "center", zIndex: 1 }}>
             <span>
               <span
                 style={{
@@ -125,7 +177,21 @@ const Pairing = ({
               </span>{" "}
               {series.team2?.teamName}
             </span>
-            {series.round === "ALDS" || series.round === "NLDS" ? (
+            {pickSeries &&
+            series.team2Id === pickSeries.team2Id &&
+            pickSeries.winner === series.team2Id ? (
+              <span
+                style={{
+                  fontSize: 12,
+                  opacity: 0.8,
+                  paddingLeft: 4,
+                  fontWeight: "bold",
+                  letterSpacing: -1,
+                }}
+              >
+                ( in {pickSeries.winIn} )
+              </span>
+            ) : series.round === "ALDS" || series.round === "NLDS" ? (
               <span style={{ fontSize: 12, opacity: 0.5, paddingLeft: 4 }}>
                 (Bye)
               </span>
