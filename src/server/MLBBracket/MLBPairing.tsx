@@ -78,13 +78,23 @@ const Pairing = ({
             position: "relative",
           }}
         >
-          {pickSeries &&
-          !series.winner &&
-          pickSeries.winner === series.team1Id ? (
+          {(pickSeries &&
+            !series.winner &&
+            pickSeries.winner === series.team1Id) ||
+          (pickSeries &&
+            !series.winner &&
+            !series.team1 &&
+            pickSeries.winner === pickSeries.team1Id) ? (
             <div
               style={{
                 backgroundColor: accentColor,
-                opacity: 0.4,
+                opacity:
+                  !series.team1 &&
+                  !series.winner &&
+                  pickSeries &&
+                  pickSeries.winner === pickSeries.team1Id
+                    ? 0.2
+                    : 0.4,
                 height: 32,
                 width: 256,
                 marginLeft: -8,
@@ -96,6 +106,7 @@ const Pairing = ({
           <span
             style={{
               zIndex: 1,
+              opacity: series.team1 ? 1 : 0.6,
             }}
           >
             <span
@@ -105,9 +116,13 @@ const Pairing = ({
                 paddingRight: 3,
               }}
             >
-              {series.team1?.seed}
+              {!series.team1 && pickSeries
+                ? pickSeries.team1?.seed
+                : series.team1?.seed}
             </span>{" "}
-            {series.team1?.teamName}
+            {!series.team1 && pickSeries
+              ? pickSeries.team1?.teamName
+              : series.team1?.teamName}
             {pickSeries &&
             pickSeries.winner === series.team1Id &&
             pickSeries.team1Id === series.team1Id ? (
@@ -120,11 +135,13 @@ const Pairing = ({
                   letterSpacing: -1,
                 }}
               >
-                ( in {pickSeries.winIn} )
+                ( in {pickSeries?.winIn} )
               </span>
             ) : null}
           </span>
-          {showScores ? <span>{series.team1Score}</span> : null}
+          {showScores && series.team1 && series.team2 ? (
+            <span>{series.team1Score}</span>
+          ) : null}
         </div>
 
         <div
@@ -149,13 +166,22 @@ const Pairing = ({
             position: "relative",
           }}
         >
-          {pickSeries &&
-          !series.winner &&
-          pickSeries.winner === series.team2Id ? (
+          {(pickSeries &&
+            !series.winner &&
+            pickSeries.winner === series.team2Id) ||
+          (pickSeries &&
+            !series.winner &&
+            !series.team2 &&
+            pickSeries.winner === pickSeries.team2Id) ? (
             <div
               style={{
                 backgroundColor: accentColor,
-                opacity: 0.4,
+                opacity:
+                  !series.winner &&
+                  !series.team2 &&
+                  pickSeries.winner === pickSeries.team2Id
+                    ? 0.2
+                    : 0.4,
                 height: 32,
                 width: 256,
                 marginLeft: -8,
@@ -164,7 +190,14 @@ const Pairing = ({
               }}
             ></div>
           ) : null}
-          <div style={{ display: "flex", alignItems: "center", zIndex: 1 }}>
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              zIndex: 1,
+              opacity: series.team2 ? 1 : 0.6,
+            }}
+          >
             <span>
               <span
                 style={{
@@ -173,9 +206,13 @@ const Pairing = ({
                   paddingRight: 3,
                 }}
               >
-                {series.team2?.seed}
+                {pickSeries && !series.team2
+                  ? pickSeries.team2?.seed
+                  : series.team2?.seed}
               </span>{" "}
-              {series.team2?.teamName}
+              {pickSeries && !series.team2
+                ? pickSeries.team2?.teamName
+                : series.team2?.teamName}
             </span>
             {pickSeries &&
             series.team2Id === pickSeries.team2Id &&
@@ -197,7 +234,9 @@ const Pairing = ({
               </span>
             ) : null}
           </div>
-          {showScores ? <span>{series.team2Score}</span> : null}
+          {showScores && series.team1 && series.team2 ? (
+            <span>{series.team2Score}</span>
+          ) : null}
         </div>
       </div>
     </div>
