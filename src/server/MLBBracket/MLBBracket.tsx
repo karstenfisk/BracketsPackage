@@ -172,7 +172,6 @@ const MLBBracket = ({
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              cursor: "pointer",
               height: 32,
               fontWeight: "bold",
               color: textColor,
