@@ -16,7 +16,9 @@ const Pairing = ({
     Object.keys(series).length === 0 ||
     pickSeries.winner !== pickSeries.team1Id
       ? matchColor
-      : series.winner === null || typeof series.winner !== "number"
+      : series.winner === null ||
+        typeof series.winner !== "number" ||
+        series.team1Id !== pickSeries.team1Id
       ? matchColor
       : typeof pickSeries.team1Id === "number" &&
         series.winner === pickSeries.team1Id &&
@@ -31,7 +33,9 @@ const Pairing = ({
     Object.keys(series).length === 0 ||
     pickSeries.winner !== pickSeries.team2Id
       ? matchColor
-      : series.winner === null || typeof series.winner !== "number"
+      : series.winner === null ||
+        typeof series.winner !== "number" ||
+        series.team2Id !== pickSeries.team2Id
       ? matchColor
       : typeof pickSeries.team2Id === "number" &&
         series.winner === pickSeries.team2Id &&
@@ -125,11 +129,15 @@ const Pairing = ({
             {!series.team1 && pickSeries
               ? pickSeries.team1?.teamName
               : series.team1?.teamName}
-            {pickSeries &&
-            pickSeries.winner === series.team1Id &&
-            pickSeries.team1Id === series.team1Id ? (
+            {(pickSeries &&
+              pickSeries.winner === series.team1Id &&
+              pickSeries.team1Id === series.team1Id) ||
+            (pickSeries &&
+              !series.team1Id &&
+              pickSeries.winner === pickSeries.team1Id) ? (
               <span
                 style={{
+                  zIndex: 1,
                   fontSize: 11,
                   opacity: 0.8,
                   paddingLeft: 4,
@@ -137,12 +145,12 @@ const Pairing = ({
                   letterSpacing: -1,
                 }}
               >
-                ( in {pickSeries?.winIn} )
+                ( in {pickSeries.winIn} )
               </span>
             ) : null}
           </span>
           {showScores && series.team1 && series.team2 ? (
-            <span>{series.team1Score}</span>
+            <span style={{ zIndex: 1 }}>{series.team1Score}</span>
           ) : null}
         </div>
 
@@ -216,11 +224,15 @@ const Pairing = ({
                 ? pickSeries.team2?.teamName
                 : series.team2?.teamName}
             </span>
-            {pickSeries &&
-            series.team2Id === pickSeries.team2Id &&
-            pickSeries.winner === series.team2Id ? (
+            {(pickSeries &&
+              series.team2Id === pickSeries.team2Id &&
+              pickSeries.winner === series.team2Id) ||
+            (pickSeries &&
+              !series.team2Id &&
+              pickSeries.winner === pickSeries.team2Id) ? (
               <span
                 style={{
+                  zIndex: 1,
                   fontSize: 12,
                   opacity: 0.8,
                   paddingLeft: 4,
@@ -237,7 +249,7 @@ const Pairing = ({
             ) : null}
           </div>
           {showScores && series.team1 && series.team2 ? (
-            <span>{series.team2Score}</span>
+            <span style={{ zIndex: 1 }}>{series.team2Score}</span>
           ) : null}
         </div>
       </div>
