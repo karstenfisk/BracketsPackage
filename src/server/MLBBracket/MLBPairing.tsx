@@ -19,7 +19,8 @@ const Pairing = ({
       : series.winner === null || typeof series.winner !== "number"
       ? matchColor
       : typeof pickSeries.team1Id === "number" &&
-        series.winner === pickSeries.team1Id
+        series.winner === pickSeries.team1Id &&
+        pickSeries.team1Id === series.team1Id
       ? "rgba(98, 181, 98, 0.4)"
       : "rgba(205, 92, 92, 0.4)";
 
@@ -33,7 +34,8 @@ const Pairing = ({
       : series.winner === null || typeof series.winner !== "number"
       ? matchColor
       : typeof pickSeries.team2Id === "number" &&
-        series.winner === pickSeries.team2Id
+        series.winner === pickSeries.team2Id &&
+        pickSeries.team2Id === series.team2Id
       ? "rgba(98, 181, 98, 0.4)"
       : "rgba(205, 92, 92, 0.4)";
 
